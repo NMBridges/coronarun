@@ -17,7 +17,7 @@ public class OutlineScript : MonoBehaviour
 
     void Update ()
     {
-        updateBorder();
+        //updateBorder();
     }
 
     private struct VertInfo
@@ -32,14 +32,16 @@ public class OutlineScript : MonoBehaviour
     {
     	foreach (MeshFilter meshSource in meshSources)
     	{
+    		Mesh MESH = meshSource.mesh;
     		if(meshSource.name == "Body")
             {
-            	//SkinnedMeshRenderer skin = (Mesh);
-            	//SMRs[0].sharedMesh.colors = colors;
-            	//UnityEngine.Debug.Log("gamer");
+            	SkinnedMeshRenderer skin = SMRs[0];
+            	skin.sharedMesh = (Mesh) Instantiate(skin.sharedMesh);
+            	MESH = skin.sharedMesh;
+            	UnityEngine.Debug.Log("gamer");
             }
-            Vector3[] verts = meshSource.mesh.vertices;
-            Vector3[] normals = meshSource.mesh.normals;
+            Vector3[] verts = MESH.vertices;
+            Vector3[] normals = MESH.normals;
             VertInfo[] vertInfo = new VertInfo[verts.Length];
             for (int i = 0; i < verts.Length; i++)
             {
@@ -83,8 +85,13 @@ public class OutlineScript : MonoBehaviour
                 Vector4 normColor = new Vector4((normal.x + 1f) / 2f, (normal.y + 1f) / 2f, (normal.z + 1f) / 2f, 1f);
                 colors[origIndex] = normColor;
             }
-            meshSource.mesh.colors = colors;
-
+            if(meshSource.name == "Body")
+            {
+            	MESH.colors = colors;
+            } else
+            {
+            	meshSource.mesh.colors = colors;
+            }
         }
     }
 }
