@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameObject.Find("PlayerEmpty").GetComponent<OverallController>().playerIsMoving)
+        if(!GameObject.Find("PlayerEmpty").GetComponent<OverallController>().playerIsMoving && 0 == 1)
         {
             if(tranState == 0)
             {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BotControllerScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BotControllerScript : MonoBehaviour
     BoxCollider boxCollider;
     Collider[] allColliders;
     Transform pTransform;
+    int slider;
     Animator anim;
     float speed;
     float sign;
@@ -15,6 +17,8 @@ public class BotControllerScript : MonoBehaviour
     List<Vector2> turnTilesLocation;
     List<Vector3> tp;
     List<int> completedTurns;
+    Dictionary<int, Vector3> positions;
+    Dictionary<int, Quaternion> rotations;
     int turnTileDir;
     float gWidth;
     float gHeight;
@@ -33,6 +37,8 @@ public class BotControllerScript : MonoBehaviour
     
     void Start()
     {
+        positions = new Dictionary<int, Vector3>();
+        rotations = new Dictionary<int, Quaternion>();
     	destroyTrigger = false;
     	botIsMoving = true;
     	nRigid = GetComponent<Rigidbody>();
@@ -57,6 +63,10 @@ public class BotControllerScript : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(Input.GetButtonDown("Jump"))
+        {
+            botIsMoving = false;
+        }
     	transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     	if(botIsMoving)
     	{
@@ -93,9 +103,16 @@ public class BotControllerScript : MonoBehaviour
 		        	{
 		        		float yIn = transform.position.z - turnTilesLocation[turnTileDir].y + 5f;
 		        		float xFromLeft = (transform.position.x - turnTilesLocation[turnTileDir].x) * -Mathf.Sign(turnTiles[turnTileDir].z) * 0.95f + 5f;
-		        		if(sign * yIn > sign * xFromLeft)
+		        		if(sign * yIn >= sign * xFromLeft)
 		        		{
 		        			turnState = 2;
+                            if(sign == -1f)
+                            {
+                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, transform.position.z);
+                            } else
+                            {
+                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y - 4.25f);
+                            }
 		        		}
 		    		} else
 		    		{
@@ -103,17 +120,31 @@ public class BotControllerScript : MonoBehaviour
 		    			{
 		    				float yIn = turnTilesLocation[turnTileDir].x - transform.position.x + 5f;
 		        			float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
-		        			if(sign * yIn > sign * xFromLeft)
+		        			if(sign * yIn >= sign * xFromLeft)
 			        		{
 			        			turnState = 2;
+                                if(sign == 1f)
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y,turnTilesLocation[turnTileDir].y - 4.25f);
+                                } else
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y + 4.25f);
+                                }
 			        		}
 						} else
 						{
 							float yIn = transform.position.x - turnTilesLocation[turnTileDir].x + 5f;
 							float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
-							if(sign * yIn > sign * xFromLeft)
+							if(sign * yIn >= sign * xFromLeft)
 							{
 								turnState = 2;
+                                if(sign == 1f)
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y + 4.25f);
+                                } else
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y - 4.25f);
+                                }
 							}
 						}
 		    		}
@@ -139,13 +170,31 @@ public class BotControllerScript : MonoBehaviour
 		{
 			movement(1f);
 		}
+        slider = (int)GameObject.Find("Slider").GetComponent<Slider>().value;
+        if(slider != 0)
+        {
+            botIsMoving = false;
+            nRigid.velocity = Vector3.zero;
+            transform.position = positions[slider];
+            transform.rotation = rotations[slider];
+        } else if(!positions.ContainsKey((int)Mathf.Floor(Time.time * 50f)))
+        {
+            positions.Add((int)Mathf.Floor(Time.time * 50f), transform.position);
+            rotations.Add((int)Mathf.Floor(Time.time * 50f), transform.rotation);
+        }
+    }
+
+    void replayMode()
+    {
+        botIsMoving = false;
+
     }
 
     void movement(float factor)
     {
 		pTransform = GameObject.Find("PlayerEmpty").GetComponent<Transform>();
     	float fDist = Mathf.Sqrt((transform.position.x - pTransform.position.x) * (transform.position.x - pTransform.position.x) + (transform.position.z - pTransform.position.z) * (transform.position.z - pTransform.position.z));
-		if(fDist < 60f)
+		if(fDist < 600f)
 		{
 			if(botIsMoving)
 			{

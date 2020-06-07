@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarScript : MonoBehaviour
 {
+    public Material[] mats = new Material[5];
     Transform pTransform;
     List<Vector3> turnTiles;
     List<Vector2> turnTilesLocation;
     List<Vector3> tp;
     List<int> completedTurns;
     List<Color> colorOptions;
+    Dictionary<int, Vector3> positions;
+    Dictionary<int, Quaternion> rotations;
+    int slider;
     Rigidbody cRigid;
     int turnTileDir;
     float gWidth;
@@ -24,10 +29,14 @@ public class CarScript : MonoBehaviour
     float orient1;
     float orient2;
     bool destroyTrigger;
+    bool carIsMoving;
 
     void Start()
     {
+        positions = new Dictionary<int, Vector3>();
+        rotations = new Dictionary<int, Quaternion>();
     	destroyTrigger = false;
+        carIsMoving = true;
     	sign = transform.position.y;
     	gScale = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridScale;
         gWidth = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridWidth;
@@ -42,7 +51,7 @@ public class CarScript : MonoBehaviour
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
         createTurnTilePoints();
         createColors();
-        GameObject prefabMain = transform.GetChild(0).gameObject;
+        GameObject prefabMain = transform.GetChild(1).gameObject;
         int numOfChild = prefabMain.transform.childCount;
         for(int ch = 0; ch < numOfChild; ch++)
         {
@@ -50,7 +59,7 @@ public class CarScript : MonoBehaviour
         	if(carBody.name == "car")
         	{
         		int pp = Random.Range(0, colorOptions.Count);
-        		carBody.GetComponent<Renderer>().material.color = new Color(colorOptions[pp].r, colorOptions[pp].g, colorOptions[pp].b, 1f);
+        		carBody.GetComponent<Renderer>().material = mats[Random.Range(0, mats.Length)];
         	}
     	}
         
@@ -68,15 +77,19 @@ public class CarScript : MonoBehaviour
                 destroyTrigger = true;
             } else
             {
-                transform.localScale = new Vector3(1f, Mathf.SmoothStep(0f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
+                transform.localScale = new Vector3(1f, Mathf.SmoothStep(0.01f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
             }
         } else
         {
-            transform.localScale = new Vector3(0f, 0f, 0f);
+            transform.localScale = new Vector3(1f, 0.01f, 1f);
             if(destroyTrigger)
             {
                 Destroy(gameObject);
             }
+        }
+        if(Input.GetButtonDown("Jump"))
+        {
+            carIsMoving = false;
         }
     }
 
@@ -89,73 +102,88 @@ public class CarScript : MonoBehaviour
         	ResetTP();
         	createTurnTilePoints();
     	}
-    	if(OnTurnTile(new Vector2(transform.position.x, transform.position.z)))
-    	{
-    		if(!completedTurns.Contains(turnTileDir))
-    		{
-    			cRigid.velocity = Vector3.zero;
-	    		if(turnState == 0)
-	    		{
-	    			Vector2 TTC = new Vector2(turnTilesLocation[turnTileDir].x, turnTilesLocation[turnTileDir].y);
-	    			startDeg = 0f;
-	    			orient1 = turnTiles[turnTileDir].y * 180f / Mathf.PI;
-	    			orient2 = turnTiles[turnTileDir].z * 180f / Mathf.PI;
-	    			if(sign == -1f)
-	    			{
-	    				startDeg = Mathf.PI / 2f;
-	    				orient1 = (turnTiles[turnTileDir].z + Mathf.PI) * 180f / Mathf.PI;
-	    				orient2 = (turnTiles[turnTileDir].y + Mathf.PI) * 180f / Mathf.PI;
-	    			}
-	    			if(turnTiles[turnTileDir].z < 0f)
-	    			{
-	    				rad = 5f + sign * 1.75f;
-	    				rcen = new Vector2(TTC.x - 5f, TTC.y - 5f);
-	    			} else if(turnTiles[turnTileDir].z > 0f)
-	    			{
-	    				rad = 5f - sign * 1.75f;
-	    				rcen = new Vector2(TTC.x + 5f, TTC.y - 5f);
-	    			} else
-	    			{
-	    				rad = 5f + Mathf.Sign(turnTiles[turnTileDir].y) * sign * 1.75f;
-	    				rcen = new Vector2(TTC.x - Mathf.Sign(turnTiles[turnTileDir].y) * 5f, TTC.y + 5f);
-	    			}
-	    			turnCounter = 0f;
-	    			turnState = 1;
-	    		}
-	    		if(turnState == 1)
-	    		{
-	    			turnCounter += sign * Mathf.PI / 2f * Time.fixedDeltaTime;
-	    			if(turnCounter >= Mathf.PI / 2f || turnCounter <= - Mathf.PI / 2f)
-	    			{
-	    				turnCounter = Mathf.Clamp(turnCounter, - Mathf.PI / 2f, Mathf.PI / 2f);
-	    				turnState = 2;
-	    				completedTurns.Add(turnTileDir);
-	    			}
-	    			if(turnTiles[turnTileDir].z == 0f)
-	    			{
-	    				transform.position = new Vector3(rcen.x + rad * Mathf.Sign(turnTiles[turnTileDir].y) * Mathf.Sin(startDeg + turnCounter), 0f, rcen.y - rad * Mathf.Cos(startDeg + turnCounter));
-	    				transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, Mathf.Abs(turnCounter) / (Mathf.PI / 2f)), 0f);
-    				} else
-    				{
-	    				transform.position = new Vector3(rcen.x - rad * Mathf.Sign(turnTiles[turnTileDir].z) * Mathf.Cos(startDeg + turnCounter), 0f, rcen.y + rad * Mathf.Sin(startDeg + turnCounter));
-	    				transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, Mathf.Abs(turnCounter) / (Mathf.PI / 2f)), 0f);
-	    			}
-	    		}
-	    		if(turnState == 2)
-	    		{
-	    			transform.position = transform.position + transform.rotation * new Vector3(0f, 0f, 1f) * 10f * Time.deltaTime;
-	    			turnState = 0;
-	    			turnCounter = 0f;
-	    		}
-    		}
-    	} else
-    	{
-    		cRigid.AddForce(transform.forward * 3000f);
-    		if(cRigid.velocity.magnitude > 10f)
-    		{
-    			cRigid.velocity = cRigid.velocity.normalized * 10f;
-    		}
-    	}
+        if(carIsMoving)
+        {
+            if(OnTurnTile(new Vector2(transform.position.x, transform.position.z)))
+            {
+                if(!completedTurns.Contains(turnTileDir))
+                {
+                    cRigid.velocity = Vector3.zero;
+                    if(turnState == 0)
+                    {
+                        Vector2 TTC = new Vector2(turnTilesLocation[turnTileDir].x, turnTilesLocation[turnTileDir].y);
+                        startDeg = 0f;
+                        orient1 = turnTiles[turnTileDir].y * 180f / Mathf.PI;
+                        orient2 = turnTiles[turnTileDir].z * 180f / Mathf.PI;
+                        if(sign == -1f)
+                        {
+                            startDeg = Mathf.PI / 2f;
+                            orient1 = (turnTiles[turnTileDir].z + Mathf.PI) * 180f / Mathf.PI;
+                            orient2 = (turnTiles[turnTileDir].y + Mathf.PI) * 180f / Mathf.PI;
+                        }
+                        if(turnTiles[turnTileDir].z < 0f)
+                        {
+                            rad = 5f + sign * 1.75f;
+                            rcen = new Vector2(TTC.x - 5f, TTC.y - 5f);
+                        } else if(turnTiles[turnTileDir].z > 0f)
+                        {
+                            rad = 5f - sign * 1.75f;
+                            rcen = new Vector2(TTC.x + 5f, TTC.y - 5f);
+                        } else
+                        {
+                            rad = 5f + Mathf.Sign(turnTiles[turnTileDir].y) * sign * 1.75f;
+                            rcen = new Vector2(TTC.x - Mathf.Sign(turnTiles[turnTileDir].y) * 5f, TTC.y + 5f);
+                        }
+                        turnCounter = 0f;
+                        turnState = 1;
+                    }
+                    if(turnState == 1)
+                    {
+                        turnCounter += sign * Mathf.PI / 2f * Time.fixedDeltaTime;
+                        if(turnCounter >= Mathf.PI / 2f || turnCounter <= - Mathf.PI / 2f)
+                        {
+                            turnCounter = Mathf.Clamp(turnCounter, - Mathf.PI / 2f, Mathf.PI / 2f);
+                            turnState = 2;
+                            completedTurns.Add(turnTileDir);
+                        }
+                        if(turnTiles[turnTileDir].z == 0f)
+                        {
+                            transform.position = new Vector3(rcen.x + rad * Mathf.Sign(turnTiles[turnTileDir].y) * Mathf.Sin(startDeg + turnCounter), 0f, rcen.y - rad * Mathf.Cos(startDeg + turnCounter));
+                            transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, Mathf.Abs(turnCounter) / (Mathf.PI / 2f)), 0f);
+                        } else
+                        {
+                            transform.position = new Vector3(rcen.x - rad * Mathf.Sign(turnTiles[turnTileDir].z) * Mathf.Cos(startDeg + turnCounter), 0f, rcen.y + rad * Mathf.Sin(startDeg + turnCounter));
+                            transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, Mathf.Abs(turnCounter) / (Mathf.PI / 2f)), 0f);
+                        }
+                    }
+                    if(turnState == 2)
+                    {
+                        transform.position = transform.position + transform.rotation * new Vector3(0f, 0f, 1f) * 10f * Time.deltaTime;
+                        turnState = 0;
+                        turnCounter = 0f;
+                    }
+                }
+            } else
+            {
+                cRigid.AddForce(transform.forward * 3000f);
+                if(cRigid.velocity.magnitude > 10f)
+                {
+                    cRigid.velocity = cRigid.velocity.normalized * 10f;
+                }
+            }
+        }
+    	slider = (int) GameObject.Find("Slider").GetComponent<Slider>().value;
+        if(slider != 0)
+        {
+            carIsMoving = false;
+            cRigid.velocity = Vector3.zero;
+            transform.position = positions[slider];
+            transform.rotation = rotations[slider];
+        } else if(!positions.ContainsKey((int)Mathf.Floor(Time.time * 50f)))
+        {
+            positions.Add((int)Mathf.Floor(Time.time * 50f), transform.position);
+            rotations.Add((int)Mathf.Floor(Time.time * 50f), transform.rotation);
+        }
     }
 
     void createColors()

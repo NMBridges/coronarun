@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OverallController : MonoBehaviour
 {
@@ -69,8 +70,10 @@ public class OverallController : MonoBehaviour
     	x = Input.GetAxis("Horizontal") * 5f;
         if(Input.GetButtonDown("Jump"))
         {
-        	//doRagdoll(true, 2000f * Vector3.up);
-            //playerIsMoving = false;
+        	playerIsMoving = false;
+            pRigid.velocity = Vector3.zero;
+            GameObject.Find("Slider").GetComponent<Slider>().value = Mathf.Floor(Time.time * 50f);
+            GameObject.Find("Slider").GetComponent<Slider>().maxValue = Mathf.Floor(Time.time * 50f);
         }
     }
 

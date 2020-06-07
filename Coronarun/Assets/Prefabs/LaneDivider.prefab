@@ -92,4 +92,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cfacc2bccfded42b4dfbf337834e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SidewalkBlank: {fileID: 2100000, guid: 7c574a1a4ff962a4db09a03036937b20, type: 2}
