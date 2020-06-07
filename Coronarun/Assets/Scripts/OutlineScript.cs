@@ -82,6 +82,7 @@ public class OutlineScript : MonoBehaviour
 
                 int origIndex = info.origIndex;
                 Vector3 normal = info.averagedNormal;
+                //normal = Quaternion.Euler(0f, -45f, 0f) * normal;
                 Vector4 normColor = new Vector4((normal.x + 1f) / 2f, (normal.y + 1f) / 2f, (normal.z + 1f) / 2f, 1f);
                 colors[origIndex] = normColor;
             }
