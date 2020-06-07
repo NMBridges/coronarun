@@ -519,11 +519,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshSources:
-  - {fileID: 214847098}
   - {fileID: 1404815076}
   - {fileID: 54452237}
   SMRs:
-  - {fileID: 214847100}
+  - {fileID: 1404815077}
 --- !u!1001 &214847054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1836,12 +1835,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214847096}
   m_Mesh: {fileID: 2959467708922500008, guid: c24ef5c4162822248a20cd3d78638615, type: 3}
---- !u!137 &214847100 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1651062367082650294, guid: c24ef5c4162822248a20cd3d78638615,
-    type: 3}
-  m_PrefabInstance: {fileID: 214847054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &214847101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7380541787961619668, guid: c24ef5c4162822248a20cd3d78638615,
@@ -2350,6 +2343,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404815074}
   m_Mesh: {fileID: 0}
+--- !u!137 &1404815077 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1651062367082650294, guid: c24ef5c4162822248a20cd3d78638615,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267217832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1614073080
 GameObject:
   m_ObjectHideFlags: 0
