@@ -103,6 +103,7 @@ public class BuildingCaller : MonoBehaviour
             clearedGrid.Add(listNum);
             GenerateSidewalk(new Vector2(listItemToCoordinate(listNum).x, listItemToCoordinate(listNum).y), turn + Mathf.PI / 2f);
             GenerateSidewalk(new Vector2(listItemToCoordinate(listNum).x, listItemToCoordinate(listNum).y), turn - Mathf.PI / 2f);
+            GenerateLaneDivider(new Vector2(listItemToCoordinate(listNum).x, listItemToCoordinate(listNum).y), turn);
         } else
         {
             clearedGrid.Clear();

@@ -21,9 +21,9 @@ float3 DecodeNormal(float4 enc)
 
 void Outline_float(float2 UV, float OutlineThickness, float DepthSensitivity, float NormalsSensitivity, float ColorSensitivity, float4 OutlineColor, out float4 Out)
 {
-    float PixelDepth = 0.1 + SAMPLE_TEXTURE2D(_CameraDepthTexture, sampler_CameraDepthTexture, UV);
-    float halfScaleFloor = floor(OutlineThickness * 0.5 * PixelDepth);
-    float halfScaleCeil = ceil(OutlineThickness * 0.5 * PixelDepth);
+    float PixelDepth = 0.1 + clamp(_CameraDepthTexture.Sample(sampler_CameraDepthTexture, UV).r, 0.001, 0.002) * 500;
+    float halfScaleFloor = floor(OutlineThickness * 0.5) * PixelDepth;
+    float halfScaleCeil = ceil(OutlineThickness * 0.5) * PixelDepth;
     float2 Texel = (1.0) / float2(_CameraColorTexture_TexelSize.z, _CameraColorTexture_TexelSize.w);
 
     float2 uvSamples[4];
