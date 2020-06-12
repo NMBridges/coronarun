@@ -93,6 +93,8 @@ public class OverallController : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
                 pRigid.velocity = Vector3.zero;
             }
+            GameObject.Find("Slider").GetComponent<Slider>().maxValue = Mathf.Floor(Time.time * 50f);
+            GameObject.Find("Slider").GetComponent<Slider>().value -= 1;
         }
         pRigid.AddForce(Vector3.down * 20f);
     }

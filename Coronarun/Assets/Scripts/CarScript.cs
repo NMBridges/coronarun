@@ -30,6 +30,7 @@ public class CarScript : MonoBehaviour
     float orient2;
     bool destroyTrigger;
     bool carIsMoving;
+    float fDist;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class CarScript : MonoBehaviour
         rotations = new Dictionary<int, Quaternion>();
     	destroyTrigger = false;
         carIsMoving = true;
+        fDist = 0f;
     	sign = transform.position.y;
     	gScale = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridScale;
         gWidth = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridWidth;
@@ -68,7 +70,7 @@ public class CarScript : MonoBehaviour
     void Update()
     {
         pTransform = GameObject.Find("PlayerEmpty").GetComponent<Transform>();
-        float fDist = Mathf.Sqrt((transform.position.x - pTransform.position.x) * (transform.position.x - pTransform.position.x) + (transform.position.z - pTransform.position.z) * (transform.position.z - pTransform.position.z));
+        fDist = Mathf.Sqrt((transform.position.x - pTransform.position.x) * (transform.position.x - pTransform.position.x) + (transform.position.z - pTransform.position.z) * (transform.position.z - pTransform.position.z));
         if(fDist < 56f)
         {
             if(fDist < 20f)
@@ -82,7 +84,7 @@ public class CarScript : MonoBehaviour
         } else
         {
             transform.localScale = new Vector3(1f, 0.01f, 1f);
-            if(destroyTrigger)
+            if(destroyTrigger && carIsMoving)
             {
                 Destroy(gameObject);
             }
@@ -165,10 +167,13 @@ public class CarScript : MonoBehaviour
                 }
             } else
             {
-                cRigid.AddForce(transform.forward * 3000f);
-                if(cRigid.velocity.magnitude > 10f)
+                if(fDist < 56f)
                 {
-                    cRigid.velocity = cRigid.velocity.normalized * 10f;
+                    cRigid.AddForce(transform.forward * 3000f);
+                    if(cRigid.velocity.magnitude > 10f)
+                    {
+                        cRigid.velocity = cRigid.velocity.normalized * 10f;
+                    }
                 }
             }
         }
