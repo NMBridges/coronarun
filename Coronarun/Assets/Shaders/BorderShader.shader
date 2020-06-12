@@ -54,7 +54,7 @@
             v2f vert (appdata IN)
             {
                 v2f OUT;
-                IN.vertex.xyz += ((IN.color * 2.0) - 1.0) * _OutlineWidth;
+                //IN.vertex.xyz += ((IN.color * 2.0) - 1.0) * _OutlineWidth;
                 OUT.vertex = UnityObjectToClipPos(IN.vertex);
                 OUT.color.xyz = _OutColor;
                 OUT.color.w = _Transparency;

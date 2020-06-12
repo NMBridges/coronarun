@@ -41,7 +41,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0009800002, y: -0.0022561129, z: 0.0003113642}
+  m_ConnectedAnchor: {x: 0.00098, y: -0.0022561129, z: 0.00031136442}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -116,7 +116,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0019432189, y: 0.0075636795, z: -0.0004057815}
+  m_ConnectedAnchor: {x: 0.0019432192, y: 0.0075636813, z: -0.00040578103}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -220,7 +220,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000044819903, y: 0.004721065, z: 0.0000000011641532}
+  m_ConnectedAnchor: {x: -0.000000005971742, y: 0.004721064, z: -6.9849204e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -294,7 +294,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.3329041e-10, y: 0.0124123525, z: -0.0009784905}
+  m_ConnectedAnchor: {x: 0, y: 0.0124123525, z: -0.0009784905}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -444,7 +444,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0009799999, y: -0.0022561129, z: 0.00031136465}
+  m_ConnectedAnchor: {x: -0.00098, y: -0.0022561129, z: 0.00031136442}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -518,7 +518,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.1921694e-11, y: -0.001924737, z: -0.00013388922}
+  m_ConnectedAnchor: {x: 0, y: -0.001924737, z: -0.00013388922}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -593,7 +593,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -7.449311e-11, y: 0.0036073322, z: 2.91039e-10}
+  m_ConnectedAnchor: {x: -1.1641532e-10, y: 0.0036073322, z: 5.82078e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -668,7 +668,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000044237827, y: 0.0047210655, z: 6.9849193e-10}
+  m_ConnectedAnchor: {x: 0.0000000058594196, y: 0.004721064, z: 6.9849204e-10}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -743,7 +743,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.5833651e-10, y: 0.0036073318, z: 6.984934e-10}
+  m_ConnectedAnchor: {x: 1.1641532e-10, y: 0.0036073313, z: 5.82078e-11}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -818,7 +818,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0019432191, y: 0.0075636795, z: -0.00040578056}
+  m_ConnectedAnchor: {x: -0.0019432192, y: 0.0075636813, z: -0.00040578103}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -947,13 +947,13 @@ PrefabInstance:
     - target: {fileID: 1651062367082650294, guid: c24ef5c4162822248a20cd3d78638615,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1651062367082650294, guid: c24ef5c4162822248a20cd3d78638615,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 95e250b05b7a970418381622cc6a3492, type: 2}
+      objectReference: {fileID: 2100000, guid: 0bcb50a27606ce94684688c8d18bd98e, type: 2}
     - target: {fileID: 1651062367082650294, guid: c24ef5c4162822248a20cd3d78638615,
         type: 3}
       propertyPath: m_Enabled

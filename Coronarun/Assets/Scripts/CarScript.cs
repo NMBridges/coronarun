@@ -51,7 +51,7 @@ public class CarScript : MonoBehaviour
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
         createTurnTilePoints();
         createColors();
-        GameObject prefabMain = transform.GetChild(1).gameObject;
+        GameObject prefabMain = transform.GetChild(0).gameObject;
         int numOfChild = prefabMain.transform.childCount;
         for(int ch = 0; ch < numOfChild; ch++)
         {
@@ -75,7 +75,7 @@ public class CarScript : MonoBehaviour
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 destroyTrigger = true;
-            } else
+            } else if(carIsMoving)
             {
                 transform.localScale = new Vector3(1f, Mathf.SmoothStep(0.01f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
             }

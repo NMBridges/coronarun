@@ -9,6 +9,8 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
     Vector3[] vertices;
     int[] triangles;
     Color[] colors;
+    //Vector2[] uvs;
+    Vector3[] normals;
     Color[] colorOptions;
     float buildingWidth;
     float buildingDepth;
@@ -49,11 +51,13 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
     	vertices = new Vector3[0];
 	    triangles = new int[0];
 	    colors = new Color[0];
-	    colorOptions = new Color[]
+        //uvs = new Vector2[0];
+        normals = new Vector3[0];
+	    colorOptions = new Color[6]
 	    {
-	    	//new Color(1f, 0.2f, 0f, 1f),
-	    	//new Color(0.8f, 0.8f, 0f, 1f),
-            //new Color(0f, 0.8f, 1f, 1f)
+	    	new Color(1f, 0.2f, 0f, 1f),
+	    	new Color(0.8f, 0.8f, 0f, 1f),
+            new Color(0f, 0.8f, 1f, 1f),
             new Color(0.5f, 0.5f, 0.5f, 1f),
             new Color(0.4f, 0.45f, 0.4f, 1f),
 	    	new Color(0.6f, 0.6f, 0.7f, 1f)
@@ -92,7 +96,7 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
     		new Vector3(xcenter - buildingWidth / 2f, 0f, spawnDistance + buildingDepth), // back bottom left          [16]
     		new Vector3(xcenter - buildingWidth / 2f, 0f, spawnDistance + buildingDepth), //                           [17]
     		new Vector3(xcenter + buildingWidth / 2f, 0f, spawnDistance + buildingDepth), // back bottom right         [18]
-    		new Vector3(xcenter + buildingWidth / 2f, 0f, spawnDistance + buildingDepth), //                           [19]
+    		new Vector3(xcenter + buildingWidth / 2f, 0f, spawnDistance + buildingDepth) //                           [19]
     	
     	};
 
@@ -107,6 +111,32 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
 
         // triangle creation
 
+        /*uvs = new Vector2[20]
+        {
+
+            new Vector2(0f, 0f), // front bottom left                         [0]
+            new Vector2(0f, 0f), //                                           [1]
+            new Vector2(0f, 0f), // front top left                  [2]
+            new Vector2(0f, 0f), //                                 [3]
+            new Vector2(0f, 0f), //                                 [4]
+            new Vector2(0f, 0f), // front top right                 [5]
+            new Vector2(0f, 0f), //                                 [6]
+            new Vector2(0f, 0f), //                                 [7]
+            new Vector2(0f, 0f), // front bottom right                        [8]
+            new Vector2(0f, 0f), //                                           [9]
+            new Vector2(0f, 0f), // back top left   [10]
+            new Vector2(0f, 0f), //                 [11]
+            new Vector2(0f, 0f), //                 [12]
+            new Vector2(0f, 0f), // back top right  [13]
+            new Vector2(0f, 0f), //                 [14]
+            new Vector2(0f, 0f), //                 [15]
+            new Vector2(0f, 0f), // back bottom left          [16]
+            new Vector2(0f, 0f), //                           [17]
+            new Vector2(0f, 0f), // back bottom right         [18]
+            new Vector2(0f, 0f) //                           [19]
+
+        };*/
+
         triangles = new int[30]
     	{
     		0, 2, 5,    // front        (top left tri)
@@ -120,6 +150,7 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
     		4, 12, 15,  // top          (top left tri)
     		4, 15, 7    // top          (bottom right tri)
     	};
+
 
     }
 
@@ -139,10 +170,6 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
     			} else
     			{
     				vertices[i].y = 0.01f;
-    				if(pTransform.position.z - vertices[i].z > 50f)
-                    {
-                        Destroy(gameObject);
-                    }
     			}
     		}
     	}
@@ -159,15 +186,15 @@ public class DrawnEnvironmentGenerator : MonoBehaviour
 			mesh.vertices = vertices;
 			mesh.triangles = triangles;
 			mesh.colors = colors;
-			mesh.RecalculateNormals();
-		    mesh.RecalculateBounds();
+            mesh.RecalculateBounds();
+            mesh.RecalculateNormals();
 		    mesh.RecalculateTangents();
 		    mesh.Optimize();
 	    }
         if(fDist > 50f && pTransform.position.z > vertices[0].z + 50f)
         {
-            GameObject.Find("Environment").GetComponent<BuildingCaller>().NUMOFBUILD -= 1;
             Destroy(gameObject);
         }
+        
     }
 }

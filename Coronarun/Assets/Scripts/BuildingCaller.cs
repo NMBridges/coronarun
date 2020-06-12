@@ -27,7 +27,6 @@ public class BuildingCaller : MonoBehaviour
     int GNT;
     int offlim1;
     int offlim2;
-    public int NUMOFBUILD;
     float sign;
     float carx;
     float cary;
@@ -42,7 +41,6 @@ public class BuildingCaller : MonoBehaviour
         clearedGrid = new List<int>();
         turnPoints = new List<Vector3>();
         GNT = 0;
-        NUMOFBUILD = 0;
         generateGrid(gridWidth, gridHeight);
         clearPath(gridWidth / 2f, 0f, 4);
         buildingGeneration();
@@ -250,7 +248,6 @@ public class BuildingCaller : MonoBehaviour
     void GenerateBuilding(Vector2 pos)
     {
     	Instantiate(building, new Vector3(pos.x, UnityEngine.Random.Range(-16f, -5f), pos.y), Quaternion.identity);
-        NUMOFBUILD++;
     }
 
     void GenerateRoadblock(Vector2 pos, float orientation)
@@ -287,11 +284,4 @@ public class BuildingCaller : MonoBehaviour
     {
         Instantiate(bot, new Vector3(pos.x, pos.y, pos.z), Quaternion.Euler(0f, orientation * 180f / Mathf.PI, 0f));
     }
-
-    void OnGUI()
-    {
-        
-        GUI.Label(new Rect(100, 125, 100, 100), " " + NUMOFBUILD);
-    }
-
 }
