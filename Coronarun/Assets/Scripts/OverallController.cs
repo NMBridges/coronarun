@@ -7,6 +7,7 @@ public class OverallController : MonoBehaviour
 {
     
     public Vector3 playerVelo;
+    public Transform skid;
     float playerDir;
     float speed;
     float x;
@@ -24,6 +25,7 @@ public class OverallController : MonoBehaviour
     Animator anim;
     List<Vector3> tp;
     public bool playerIsMoving;
+    bool skidding;
 
     void Awake()
     {
@@ -41,6 +43,7 @@ public class OverallController : MonoBehaviour
     {
         speed = 10f;
         playerDir = 0f;
+        skidding = false;
         playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
         turnTilesLocation = new List<Vector2>();
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
@@ -114,7 +117,11 @@ public class OverallController : MonoBehaviour
         		float xFromLeft = (transform.position.x - turnTilesLocation[turnTileDir].x) * 0.9f * turnTiles[turnTileDir].z / Mathf.PI * -2f + 5f;
         		if(yIn > xFromLeft)
         		{
-        			turnPlayer(5f);
+        			if(!skidding)
+                    {
+                        GenSkid();
+                    }
+                    turnPlayer(5f);
         		}
     		} else
     		{
@@ -124,6 +131,10 @@ public class OverallController : MonoBehaviour
         			float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) * 0.9f + 5f;
         			if(yIn > xFromLeft)
 	        		{
+                        if(!skidding)
+                        {
+                            GenSkid();
+                        }
 	        			turnPlayer(5f + Mathf.Abs((turnTilesLocation[turnTileDir].y - transform.position.z) * 1.6f));
 	        		}
 				} else
@@ -132,6 +143,10 @@ public class OverallController : MonoBehaviour
 					float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) * 0.9f + 5f;
 					if(yIn > xFromLeft)
 					{
+                        if(!skidding)
+                        {
+                            GenSkid();
+                        }
 						turnPlayer(5f + Mathf.Abs((transform.position.z - turnTilesLocation[turnTileDir].y) * 1.6f));
 					}
 
@@ -145,6 +160,7 @@ public class OverallController : MonoBehaviour
         	}
         	turning = 0;
         	turnCount = 0f;
+            skidding = false;
         }
         GetComponentInChildren<CameraFollow>().pDir = transform.localRotation.eulerAngles.y;
     }
@@ -185,6 +201,7 @@ public class OverallController : MonoBehaviour
 				turnCount = 1f;
 				transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(turnTiles[turnTileDir].y * 180f / Mathf.PI, turnTiles[turnTileDir].z * 180f / Mathf.PI, turnCount), 0f);
 				turning = 2;
+                skidding = true;
 			}
 		} else if (turning == 0)
 		{
@@ -246,6 +263,12 @@ public class OverallController : MonoBehaviour
     		}
     	}
     	return false;
+    }
+
+    void GenSkid()
+    {
+        Transform temp = Instantiate(skid, transform.position, transform.rotation);
+        Destroy(temp.gameObject, 2);
     }
 
     void OnGUI()
