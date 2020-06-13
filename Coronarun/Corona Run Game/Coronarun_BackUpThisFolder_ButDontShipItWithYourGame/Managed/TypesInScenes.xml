@@ -31,6 +31,8 @@
 		<type fullname="UnityEngine.MeshRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioBehaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioListener" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.Rigidbody" preserve="nothing"/>
 		<type fullname="UnityEngine.Collider" preserve="nothing"/>
 		<type fullname="UnityEngine.MeshCollider" preserve="nothing"/>
@@ -54,8 +56,8 @@
 		<type fullname="UnityEngine.Sprite" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.Cubemap" preserve="nothing"/>
-		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.LightProbes" preserve="nothing"/>
+		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.PhysicMaterial" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
@@ -64,9 +66,11 @@
 		<type fullname="CameraFollow" preserve="nothing"/>
 		<type fullname="CarScript" preserve="nothing"/>
 		<type fullname="CrosswalkScript" preserve="nothing"/>
+		<type fullname="DepthNormalsFeature" preserve="nothing"/>
 		<type fullname="DrawnEnvironmentGenerator" preserve="nothing"/>
 		<type fullname="LaneDividerScript" preserve="nothing"/>
 		<type fullname="MinimapScript" preserve="nothing"/>
+		<type fullname="OutlineFeature" preserve="nothing"/>
 		<type fullname="OverallController" preserve="nothing"/>
 		<type fullname="RoadBlockScript" preserve="nothing"/>
 		<type fullname="SidewalkCornerGenerator" preserve="nothing"/>
@@ -126,6 +130,7 @@
 		<type fullname="UnityEngine.UI.RawImage" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.ScrollRect" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Scrollbar" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.Slider" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Text" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Toggle" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="nothing"/>

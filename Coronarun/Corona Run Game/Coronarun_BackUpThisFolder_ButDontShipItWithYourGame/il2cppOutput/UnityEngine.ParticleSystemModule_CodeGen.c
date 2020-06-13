@@ -79,23 +79,23 @@ static Il2CppMethodPointer s_methodPointers[18] =
 };
 static const int32_t s_InvokerIndices[18] = 
 {
-	1909,
-	1910,
+	2082,
+	2083,
 	32,
 	32,
-	1911,
+	2084,
 	6,
 	64,
 	296,
-	1127,
-	1127,
+	1129,
+	1129,
 	296,
 	296,
-	1912,
+	2085,
 	32,
 	296,
-	1127,
-	1127,
+	1129,
+	1129,
 	116,
 };
 extern const Il2CppCodeGenModule g_UnityEngine_ParticleSystemModuleCodeGenModule;
