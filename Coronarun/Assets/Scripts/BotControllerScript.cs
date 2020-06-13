@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BotControllerScript : MonoBehaviour
 {
+    public Transform cough;
 	Rigidbody nRigid;
     BoxCollider boxCollider;
     Collider[] allColliders;
@@ -32,8 +33,8 @@ public class BotControllerScript : MonoBehaviour
     float turnState;
     bool destroyTrigger;
     bool botIsMoving;
-
-    // FIX SPEED BEING DIFFERENT IN GAME
+    float lastCoughTime;
+    bool infected;
     
     void Start()
     {
@@ -58,6 +59,8 @@ public class BotControllerScript : MonoBehaviour
         createTurnTilePoints();
     	speed = 5f;
     	transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        infected = (Random.value < 0.8);
+        lastCoughTime = Time.time;
     }
 
     
@@ -182,6 +185,14 @@ public class BotControllerScript : MonoBehaviour
             positions.Add((int)Mathf.Floor(Time.time * 50f), transform.position);
             rotations.Add((int)Mathf.Floor(Time.time * 50f), transform.rotation);
         }
+        if(infected)
+        {
+            if(Time.time - lastCoughTime > 3f && Random.value > 0.9)
+            {
+                GenCough();
+                lastCoughTime = Time.time;
+            }
+        }
     }
 
     void replayMode()
@@ -297,5 +308,10 @@ public class BotControllerScript : MonoBehaviour
             doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
             botIsMoving = false;
         }
+    }
+
+    void GenCough()
+    {
+        Transform temp = Instantiate(cough, transform.position + new Vector3(0f, 1.4f, 0f) + transform.forward * 0.6f, transform.rotation, transform);
     }
 }

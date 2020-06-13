@@ -8,6 +8,7 @@ public class OverallController : MonoBehaviour
     
     public Vector3 playerVelo;
     public Transform skid;
+    public Transform blood;
     float playerDir;
     float speed;
     float x;
@@ -214,6 +215,10 @@ public class OverallController : MonoBehaviour
     {
     	if(col.gameObject.tag == "carsbruh")
         {
+            if(playerIsMoving)
+            {
+                GenBlood(col.contacts[0].point, col.contacts[0].normal);
+            }
             pRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
@@ -269,6 +274,12 @@ public class OverallController : MonoBehaviour
     {
         Transform temp = Instantiate(skid, transform.position, transform.rotation);
         Destroy(temp.gameObject, 2);
+    }
+
+    void GenBlood(Vector3 pos, Vector3 rot)
+    {
+        Transform parent = transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Transform>();
+        Transform temp = Instantiate(blood, pos, Quaternion.LookRotation(rot, Vector3.up), parent);
     }
 
     void OnGUI()

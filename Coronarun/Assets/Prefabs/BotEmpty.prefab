@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411a99af127126949bd2e6f6a72a0ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cough: {fileID: 4470833414706186229, guid: 7310a414c17a95f4b913fdeb9d85bb8f, type: 3}
 --- !u!54 &4530892172445751587
 Rigidbody:
   m_ObjectHideFlags: 0
