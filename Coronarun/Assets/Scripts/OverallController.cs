@@ -27,6 +27,7 @@ public class OverallController : MonoBehaviour
     List<Vector3> tp;
     public bool playerIsMoving;
     bool skidding;
+    int coronaLevel;
 
     void Awake()
     {
@@ -45,6 +46,7 @@ public class OverallController : MonoBehaviour
         speed = 10f;
         playerDir = 0f;
         skidding = false;
+        coronaLevel = 0;
         playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
         turnTilesLocation = new List<Vector2>();
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
@@ -240,6 +242,14 @@ public class OverallController : MonoBehaviour
     		
 		}
     }
+
+    private void OnParticleCollision(GameObject col)
+    {
+        if(col.tag == "coughbruh")
+        {
+            coronaLevel += 1;
+        }
+    }
     
     void createTurnTilePoints()
     {
@@ -286,5 +296,6 @@ public class OverallController : MonoBehaviour
     {
 
         GUI.Label(new Rect(100, 100, 100, 100), " " + 1f / Time.deltaTime);
+        GUI.Label(new Rect(100, 150, 100, 100), " " + coronaLevel);
     }
 }
