@@ -55,12 +55,14 @@
 		<type fullname="UnityEngine.Mesh" preserve="nothing"/>
 		<type fullname="UnityEngine.Sprite" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
+		<type fullname="UnityEngine.AudioClip" preserve="nothing"/>
 		<type fullname="UnityEngine.Cubemap" preserve="nothing"/>
 		<type fullname="UnityEngine.LightProbes" preserve="nothing"/>
 		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.PhysicMaterial" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
+		<type fullname="AudioManager" preserve="nothing"/>
 		<type fullname="BotControllerScript" preserve="nothing"/>
 		<type fullname="BuildingCaller" preserve="nothing"/>
 		<type fullname="CameraFollow" preserve="nothing"/>
@@ -75,6 +77,7 @@
 		<type fullname="RoadBlockScript" preserve="nothing"/>
 		<type fullname="SidewalkCornerGenerator" preserve="nothing"/>
 		<type fullname="SidewalkGenerator" preserve="nothing"/>
+		<type fullname="TimeRemap" preserve="nothing"/>
 		<type fullname="minimapcamscript" preserve="nothing"/>
 		<type fullname="tempgroundshift" preserve="nothing"/>
 	</assembly>
