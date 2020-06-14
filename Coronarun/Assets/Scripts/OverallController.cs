@@ -9,6 +9,7 @@ public class OverallController : MonoBehaviour
     public Vector3 playerVelo;
     public Transform skid;
     public Transform blood;
+    public TimeRemap timeManager;
     float playerDir;
     float speed;
     float x;
@@ -28,10 +29,12 @@ public class OverallController : MonoBehaviour
     public bool playerIsMoving;
     bool skidding;
     int coronaLevel;
+    Material bodyMat;
+    Color healthyColor;
+    Color coronaColor;
 
     void Awake()
     {
-        playerIsMoving = true;
     	pRigid = GetComponent<Rigidbody>();
     	boxCollider = GetComponent<BoxCollider>();
     	allColliders = GetComponentsInChildren<Collider>();
@@ -45,9 +48,13 @@ public class OverallController : MonoBehaviour
     {
         speed = 10f;
         playerDir = 0f;
+        playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
+        playerIsMoving = true;
         skidding = false;
         coronaLevel = 0;
-        playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
+        bodyMat = gameObject.GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<Renderer>().material;
+        healthyColor = new Color(1f, 0f, 0f, 1f);
+        coronaColor = new Color(0f, 0.4f, 0f, 1f);
         turnTilesLocation = new List<Vector2>();
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
         ResetTP();
@@ -57,12 +64,14 @@ public class OverallController : MonoBehaviour
         createTurnTilePoints();
         turning = 0;
         turnTileDir = 0;
+        FindObjectOfType<AudioManager>().Play("Song");
     }
 
     // Update is called once per frame
     void Update()
     {
         turnScript();
+        updateColor();
     }
 
     void FixedUpdate()
@@ -168,6 +177,14 @@ public class OverallController : MonoBehaviour
         GetComponentInChildren<CameraFollow>().pDir = transform.localRotation.eulerAngles.y;
     }
 
+    void updateColor()
+    {
+        float percentage = ((float) coronaLevel) / 15f;
+        percentage = Mathf.Clamp(percentage, 0f, 1f);
+        Color tempColor = Color.Lerp(healthyColor, coronaColor, percentage);
+        bodyMat.SetColor("AlbedoInstance", tempColor);
+    }
+
     void doRagdoll(bool isRagdoll, Vector3 force)
     {
     	foreach(Collider c in allColliders)
@@ -225,6 +242,8 @@ public class OverallController : MonoBehaviour
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
             playerIsMoving = false;
+            timeManager.SlowMotion();
+            FindObjectOfType<AudioManager>().Play("CarThud");
         }
         if(col.gameObject.tag == "botbruh")
         {
@@ -232,6 +251,7 @@ public class OverallController : MonoBehaviour
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
             playerIsMoving = false;
+            timeManager.SlowMotion();
         }
     }
 

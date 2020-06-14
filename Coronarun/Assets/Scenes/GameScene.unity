@@ -293,6 +293,8 @@ GameObject:
   - component: {fileID: 161043841}
   - component: {fileID: 161043840}
   - component: {fileID: 161043839}
+  - component: {fileID: 161043842}
+  - component: {fileID: 161043843}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -348,6 +350,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161043842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161043838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ab47f9184d7734cac223ef67f526b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFactor: 0.05
+  slowdownLength: 2
+  audioManager: {fileID: 161043843}
+--- !u!114 &161043843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161043838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3b4adfc9ae3b24688962136b22c2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: CarThud
+    clip: {fileID: 8300000, guid: 9527f823cda26d44fb561c52b35e96b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &199844091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2078,7 @@ MonoBehaviour:
   playerVelo: {x: 0, y: 0, z: 0}
   skid: {fileID: 9111079808696000978, guid: 7201f45635883df43ab9179ec9377174, type: 3}
   blood: {fileID: 6868075060512229381, guid: f8e6e0a01d3630249be522ddb3c01610, type: 3}
+  timeManager: {fileID: 161043842}
   turning: 0
   playerIsMoving: 0
 --- !u!1 &1316022692

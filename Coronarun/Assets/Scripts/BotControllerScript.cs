@@ -59,7 +59,7 @@ public class BotControllerScript : MonoBehaviour
         createTurnTilePoints();
     	speed = 5f;
     	transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
-        infected = (Random.value < 0.7);
+        infected = (Random.value < 2);
         lastCoughTime = Time.time;
     }
 
@@ -229,7 +229,7 @@ public class BotControllerScript : MonoBehaviour
         } else
         {
         	transform.localScale = new Vector3(0f, 0f, 0f);
-			if(destroyTrigger)
+			if(destroyTrigger && pTransform.position.z - transform.position.z > 50f)
 			{
 				Destroy(gameObject);
 			}
@@ -312,7 +312,7 @@ public class BotControllerScript : MonoBehaviour
 
     void GenCough()
     {
-        Transform temp = Instantiate(cough, transform.position + new Vector3(0f, 1.4f, 0f) + transform.forward * 0.6f, transform.rotation);
-        Destroy(temp.gameObject, 2);
+        Transform temp = Instantiate(cough, transform.position + new Vector3(0f, 1.4f, 0f) + transform.forward * 1.5f, transform.rotation);
+        Destroy(temp.gameObject, 1.5f);
     }
 }
