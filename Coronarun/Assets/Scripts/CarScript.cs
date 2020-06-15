@@ -14,7 +14,6 @@ public class CarScript : MonoBehaviour
     List<Color> colorOptions;
     Dictionary<int, Vector3> positions;
     Dictionary<int, Quaternion> rotations;
-    int slider;
     Rigidbody cRigid;
     int turnTileDir;
     float gWidth;
@@ -176,18 +175,6 @@ public class CarScript : MonoBehaviour
                     }
                 }
             }
-        }
-    	slider = (int) GameObject.Find("Slider").GetComponent<Slider>().value;
-        if(slider != 0)
-        {
-            carIsMoving = false;
-            cRigid.velocity = Vector3.zero;
-            transform.position = positions[slider];
-            transform.rotation = rotations[slider];
-        } else if(!positions.ContainsKey((int)Mathf.Floor(Time.time * 50f)))
-        {
-            positions.Add((int)Mathf.Floor(Time.time * 50f), transform.position);
-            rotations.Add((int)Mathf.Floor(Time.time * 50f), transform.rotation);
         }
     }
 

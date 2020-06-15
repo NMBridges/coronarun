@@ -28,7 +28,7 @@ public class OverallController : MonoBehaviour
     List<Vector3> tp;
     public bool playerIsMoving;
     bool skidding;
-    int coronaLevel;
+    public int coronaLevel;
     Material bodyMat;
     Color healthyColor;
     Color coronaColor;
@@ -40,8 +40,33 @@ public class OverallController : MonoBehaviour
     	allColliders = GetComponentsInChildren<Collider>();
     	anim = GetComponentInChildren<Animator>();
     	doRagdoll(false, Vector3.zero);
+    }
+
+    public void reset()
+    {
+        pRigid = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+        allColliders = GetComponentsInChildren<Collider>();
+        anim = GetComponentInChildren<Animator>();
+        doRagdoll(false, Vector3.zero);
+        speed = 10f;
+        playerDir = 0f;
+        playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
+        playerIsMoving = true;
+        skidding = false;
+        coronaLevel = 0;
+        bodyMat = gameObject.GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<Renderer>().material;
+        healthyColor = new Color(1f, 0f, 0f, 1f);
+        coronaColor = new Color(0f, 0.4f, 0f, 1f);
+        turnTilesLocation = new List<Vector2>();
         turnTiles = GameObject.Find("Environment").GetComponent<BuildingCaller>().turnPoints;
         ResetTP();
+        gScale = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridScale;
+        gWidth = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridWidth;
+        gHeight = GameObject.Find("Environment").GetComponent<BuildingCaller>().gridHeight;
+        createTurnTilePoints();
+        turning = 0;
+        turnTileDir = 0;
     }
 
     void Start()
@@ -87,8 +112,6 @@ public class OverallController : MonoBehaviour
         {
         	playerIsMoving = false;
             pRigid.velocity = Vector3.zero;
-            GameObject.Find("Slider").GetComponent<Slider>().value = Mathf.Floor(Time.time * 50f);
-            GameObject.Find("Slider").GetComponent<Slider>().maxValue = Mathf.Floor(Time.time * 50f);
         }
     }
 
@@ -108,8 +131,6 @@ public class OverallController : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
                 pRigid.velocity = Vector3.zero;
             }
-            GameObject.Find("Slider").GetComponent<Slider>().maxValue = Mathf.Floor(Time.time * 50f);
-            GameObject.Find("Slider").GetComponent<Slider>().value -= 1;
         }
         pRigid.AddForce(Vector3.down * 20f);
     }

@@ -34,7 +34,6 @@ public class SidewalkCornerGenerator : MonoBehaviour
 	    	new Color(0.8f, 0.8f, 0.8f, 1f)
 	    };
     }
-
     
     void Update()
     {

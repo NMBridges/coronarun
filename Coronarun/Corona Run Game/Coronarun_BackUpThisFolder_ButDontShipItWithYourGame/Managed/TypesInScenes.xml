@@ -74,6 +74,7 @@
 		<type fullname="MinimapScript" preserve="nothing"/>
 		<type fullname="OutlineFeature" preserve="nothing"/>
 		<type fullname="OverallController" preserve="nothing"/>
+		<type fullname="Readme" preserve="nothing"/>
 		<type fullname="RoadBlockScript" preserve="nothing"/>
 		<type fullname="SidewalkCornerGenerator" preserve="nothing"/>
 		<type fullname="SidewalkGenerator" preserve="nothing"/>

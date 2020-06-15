@@ -19,13 +19,7 @@ public class RoadBlockScript : MonoBehaviour
     void Update()
     {
         pTransform = GameObject.Find("PlayerEmpty").GetComponent<Transform>();
-        morphRoadblock();
         finalizeRoadblock();
-    }
-
-    void morphRoadblock()
-    {
-
     }
 
     void finalizeRoadblock()

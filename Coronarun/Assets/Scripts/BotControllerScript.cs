@@ -10,7 +10,6 @@ public class BotControllerScript : MonoBehaviour
     BoxCollider boxCollider;
     Collider[] allColliders;
     Transform pTransform;
-    int slider;
     Animator anim;
     float speed;
     float sign;
@@ -18,8 +17,6 @@ public class BotControllerScript : MonoBehaviour
     List<Vector2> turnTilesLocation;
     List<Vector3> tp;
     List<int> completedTurns;
-    Dictionary<int, Vector3> positions;
-    Dictionary<int, Quaternion> rotations;
     int turnTileDir;
     float gWidth;
     float gHeight;
@@ -38,8 +35,6 @@ public class BotControllerScript : MonoBehaviour
     
     void Start()
     {
-        positions = new Dictionary<int, Vector3>();
-        rotations = new Dictionary<int, Quaternion>();
     	destroyTrigger = false;
     	botIsMoving = true;
     	nRigid = GetComponent<Rigidbody>();
@@ -173,18 +168,6 @@ public class BotControllerScript : MonoBehaviour
 		{
 			movement(1f);
 		}
-        slider = (int)GameObject.Find("Slider").GetComponent<Slider>().value;
-        if(slider != 0)
-        {
-            botIsMoving = false;
-            nRigid.velocity = Vector3.zero;
-            transform.position = positions[slider];
-            transform.rotation = rotations[slider];
-        } else if(!positions.ContainsKey((int)Mathf.Floor(Time.time * 50f)))
-        {
-            positions.Add((int)Mathf.Floor(Time.time * 50f), transform.position);
-            rotations.Add((int)Mathf.Floor(Time.time * 50f), transform.rotation);
-        }
         if(infected)
         {
             if(Time.time - lastCoughTime > 2f && Random.value > 0.95 && botIsMoving)
@@ -195,25 +178,16 @@ public class BotControllerScript : MonoBehaviour
         }
     }
 
-    void replayMode()
-    {
-        botIsMoving = false;
-
-    }
-
     void movement(float factor)
     {
 		pTransform = GameObject.Find("PlayerEmpty").GetComponent<Transform>();
     	float fDist = Mathf.Sqrt((transform.position.x - pTransform.position.x) * (transform.position.x - pTransform.position.x) + (transform.position.z - pTransform.position.z) * (transform.position.z - pTransform.position.z));
-		if(fDist < 600f)
-		{
-			if(botIsMoving)
-			{
-				nRigid.AddForce(transform.forward * speed * 30f * factor);
-			}
-		}
 		if(fDist < 56f)
 		{
+            if(botIsMoving)
+            {
+                nRigid.AddForce(transform.forward * speed * 30f * factor);
+            }
 	        if(nRigid.velocity.magnitude > 0.4f && factor > 0f)
 	        {	
 	        	nRigid.velocity = nRigid.velocity.normalized * 0.4f;

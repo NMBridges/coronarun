@@ -30,10 +30,28 @@ public class BuildingCaller : MonoBehaviour
     float sign;
     float carx;
     float cary;
+    bool notClearing;
 
     void Awake()
     {
+        notClearing = true;
     	gridWidth = 5000f;
+        gridHeight = 30000f;
+        gridScale = 10f;
+        alreadyBuilt = new List<int>();
+        checkTemp = new int[24];
+        clearedGrid = new List<int>();
+        turnPoints = new List<Vector3>();
+        GNT = 0;
+        generateGrid(gridWidth, gridHeight);
+        clearPath(gridWidth / 2f, 0f, 4);
+        buildingGeneration();
+    }
+
+    void reset()
+    {
+        //notClearing = true;
+        gridWidth = 5000f;
         gridHeight = 30000f;
         gridScale = 10f;
         alreadyBuilt = new List<int>();
@@ -56,7 +74,7 @@ public class BuildingCaller : MonoBehaviour
     void Update()
     {
         genNew = GameObject.Find("PlayerEmpty").GetComponent<OverallController>().turning;
-        if(genNew != 0)
+        if(genNew != 0 && notClearing)
         {
             if(genNewTrig == false)
             {
@@ -72,6 +90,10 @@ public class BuildingCaller : MonoBehaviour
         } else
         {
             genNewTrig = false;
+        }
+        if(!GameObject.Find("PlayerEmpty").GetComponent<OverallController>().playerIsMoving)
+        {
+            notClearing = false;
         }
     }
 
