@@ -31,16 +31,10 @@
 		<type fullname="UnityEngine.MeshRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioBehaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioListener" preserve="nothing"/>
-		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
-		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.Rigidbody" preserve="nothing"/>
 		<type fullname="UnityEngine.Collider" preserve="nothing"/>
 		<type fullname="UnityEngine.MeshCollider" preserve="nothing"/>
-		<type fullname="UnityEngine.CapsuleCollider" preserve="nothing"/>
 		<type fullname="UnityEngine.BoxCollider" preserve="nothing"/>
-		<type fullname="UnityEngine.SphereCollider" preserve="nothing"/>
-		<type fullname="UnityEngine.Joint" preserve="nothing"/>
-		<type fullname="UnityEngine.CharacterJoint" preserve="nothing"/>
 		<type fullname="UnityEngine.Canvas" preserve="nothing"/>
 		<type fullname="UnityEngine.RectTransform" preserve="nothing"/>
 		<type fullname="UnityEngine.Motion" preserve="nothing"/>
@@ -49,17 +43,23 @@
 		<type fullname="UnityEditor.Animations.AnimatorController" preserve="nothing"/>
 		<type fullname="UnityEngine.Avatar" preserve="nothing"/>
 		<type fullname="UnityEngine.GameObject" preserve="nothing"/>
-		<type fullname="UnityEngine.RenderTexture" preserve="nothing"/>
 		<type fullname="UnityEngine.LightmapSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.Font" preserve="nothing"/>
 		<type fullname="UnityEngine.Mesh" preserve="nothing"/>
 		<type fullname="UnityEngine.Sprite" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
+		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
+		<type fullname="UnityEngine.PhysicMaterial" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
+		<type fullname="UnityEngine.CapsuleCollider" preserve="nothing"/>
+		<type fullname="UnityEngine.SphereCollider" preserve="nothing"/>
+		<type fullname="UnityEngine.Joint" preserve="nothing"/>
+		<type fullname="UnityEngine.CharacterJoint" preserve="nothing"/>
+		<type fullname="UnityEngine.RenderTexture" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioClip" preserve="nothing"/>
 		<type fullname="UnityEngine.Cubemap" preserve="nothing"/>
 		<type fullname="UnityEngine.LightProbes" preserve="nothing"/>
-		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
-		<type fullname="UnityEngine.PhysicMaterial" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="AudioManager" preserve="nothing"/>
@@ -71,6 +71,8 @@
 		<type fullname="DepthNormalsFeature" preserve="nothing"/>
 		<type fullname="DrawnEnvironmentGenerator" preserve="nothing"/>
 		<type fullname="LaneDividerScript" preserve="nothing"/>
+		<type fullname="MMCamFollow" preserve="nothing"/>
+		<type fullname="MMMousePoint" preserve="nothing"/>
 		<type fullname="MinimapScript" preserve="nothing"/>
 		<type fullname="OutlineFeature" preserve="nothing"/>
 		<type fullname="OverallController" preserve="nothing"/>
@@ -119,6 +121,13 @@
 		<type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.TextMeshPro">
+		<type fullname="TMPro.TMP_FontAsset" preserve="nothing"/>
+		<type fullname="TMPro.TMP_Settings" preserve="nothing"/>
+		<type fullname="TMPro.TMP_SpriteAsset" preserve="nothing"/>
+		<type fullname="TMPro.TMP_StyleSheet" preserve="nothing"/>
+		<type fullname="TMPro.TextMeshProUGUI" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine.UI">
 		<type fullname="UnityEngine.EventSystems.EventSystem" preserve="nothing"/>

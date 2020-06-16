@@ -57,18 +57,26 @@ public class MMMousePoint : MonoBehaviour
     			playTouched = true;
     			if(click == 2)
     			{
-    				SceneManager.LoadScene("GameScene");
+    				SceneManager.LoadSceneAsync("GameScene");
     			}
     		}
     		if(result.gameObject.tag == "optionsbutton")
     		{
     			optionsProgress += (1f - optionsProgress) * 5f * Time.deltaTime;
     			optionsTouched = true;
+    			if(click == 2)
+    			{
+    				
+    			}
     		}
     		if(result.gameObject.tag == "quitbutton")
     		{
     			quitProgress += (1f - quitProgress) * 5f * Time.deltaTime;
     			quitTouched = true;
+    			if(click == 2)
+    			{
+    				Application.Quit();
+    			}
     		}
     	}
     	if(!playTouched)
@@ -86,5 +94,10 @@ public class MMMousePoint : MonoBehaviour
     	GameObject.Find("PlayButton").GetComponent<RawImage>().material.SetFloat("_WidthVar", playProgress);
     	GameObject.Find("OptionsButton").GetComponent<RawImage>().material.SetFloat("_WidthVar", optionsProgress);
     	GameObject.Find("QuitButton").GetComponent<RawImage>().material.SetFloat("_WidthVar", quitProgress);
+
+    	if(click == 2)
+		{
+			click = 0;
+		}
     }
 }
