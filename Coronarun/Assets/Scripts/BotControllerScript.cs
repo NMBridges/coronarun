@@ -106,10 +106,10 @@ public class BotControllerScript : MonoBehaviour
 		        			turnState = 2;
                             if(sign == -1f)
                             {
-                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, transform.position.z);
+                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, transform.position.z);
                             } else
                             {
-                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y - 4.25f);
+                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f * Mathf.Sign(turnTiles[turnTileDir].z));
                             }
 		        		}
 		    		} else
@@ -123,10 +123,10 @@ public class BotControllerScript : MonoBehaviour
 			        			turnState = 2;
                                 if(sign == 1f)
                                 {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y,turnTilesLocation[turnTileDir].y - 4.25f);
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f,turnTilesLocation[turnTileDir].y - 4.25f);
                                 } else
                                 {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y + 4.25f);
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
                                 }
 			        		}
 						} else
@@ -138,10 +138,10 @@ public class BotControllerScript : MonoBehaviour
 								turnState = 2;
                                 if(sign == 1f)
                                 {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y + 4.25f);
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
                                 } else
                                 {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, transform.position.y, turnTilesLocation[turnTileDir].y - 4.25f);
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y - 4.25f);
                                 }
 							}
 						}

@@ -13,7 +13,7 @@ public class UIHealthBarScript : MonoBehaviour
     {
     	prevLev = 0f;
         level = GameObject.Find("PlayerEmpty").GetComponent<OverallController>().coronaLevel;
-        gameObject.GetComponent<RawImage>().material.SetColor("_Color", new Color((float) level / 15f, 0f, 0f, 1f));
+        gameObject.GetComponent<RawImage>().material.SetFloat("_Value", (float) level / 15f);
     }
 
     // Update is called once per frame
@@ -22,6 +22,6 @@ public class UIHealthBarScript : MonoBehaviour
         level = GameObject.Find("PlayerEmpty").GetComponent<OverallController>().coronaLevel;
        	level = Mathf.Clamp(level, 0, 15);
        	prevLev += ((float)level - prevLev) * 0.2f;
-        gameObject.GetComponent<RawImage>().material.SetColor("_Color", new Color(prevLev / 15f, 0f, 0f, 1f));
+        gameObject.GetComponent<RawImage>().material.SetFloat("_Value", prevLev / 15f);
     }
 }

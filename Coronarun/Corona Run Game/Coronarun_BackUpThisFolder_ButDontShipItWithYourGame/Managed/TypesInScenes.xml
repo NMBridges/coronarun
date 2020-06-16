@@ -74,11 +74,11 @@
 		<type fullname="MinimapScript" preserve="nothing"/>
 		<type fullname="OutlineFeature" preserve="nothing"/>
 		<type fullname="OverallController" preserve="nothing"/>
-		<type fullname="Readme" preserve="nothing"/>
 		<type fullname="RoadBlockScript" preserve="nothing"/>
 		<type fullname="SidewalkCornerGenerator" preserve="nothing"/>
 		<type fullname="SidewalkGenerator" preserve="nothing"/>
 		<type fullname="TimeRemap" preserve="nothing"/>
+		<type fullname="UIHealthBarScript" preserve="nothing"/>
 		<type fullname="minimapcamscript" preserve="nothing"/>
 		<type fullname="tempgroundshift" preserve="nothing"/>
 	</assembly>
@@ -134,7 +134,6 @@
 		<type fullname="UnityEngine.UI.RawImage" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.ScrollRect" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Scrollbar" preserve="nothing"/>
-		<type fullname="UnityEngine.UI.Slider" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Text" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Toggle" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="nothing"/>

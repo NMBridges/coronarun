@@ -9,6 +9,9 @@ TagManager:
   - carsbruh
   - botbruh
   - coughbruh
+  - playbutton
+  - optionsbutton
+  - quitbutton
   layers:
   - Default
   - TransparentFX

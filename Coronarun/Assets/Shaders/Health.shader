@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Color ("Color", Color) = (1, 1, 1, 1)
+        _Value ("Value", float) = 1
     }
     SubShader
     {
@@ -32,7 +32,7 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
+            float1 _Value;
 
             v2f vert (appdata v)
             {
@@ -45,7 +45,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                clip(sqrt(_Color.r) - i.uv.y + sin(i.uv.x + _Time.y * 2) * 0.03);
+                clip(_Value - i.uv.y + sin(i.uv.x + _Time.y * 2) * 0.03);
                 return col;
             }
             ENDCG
