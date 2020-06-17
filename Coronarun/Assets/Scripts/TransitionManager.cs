@@ -9,10 +9,6 @@ public class TransitionManager : MonoBehaviour
 	float perc;
 	int transition;
 
-	void Awake()
-	{
-		DontDestroyOnLoad(gameObject);
-	}
 	void Start()
 	{
 		reset();

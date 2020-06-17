@@ -2,14 +2,17 @@
 
 public class TimeRemap : MonoBehaviour
 {
-    public float timeFactor = 0.02f;
-    public float slowdownLength = 3f;
+    public float timeFactor;
+    public float slowdownLength;
     public AudioManager audioManager;
     bool updating;
 
     void Awake()
     {
     	updating = false;
+    	timeFactor = 0.02f;
+    	slowdownLength = 3f;
+    	audioManager = GetComponent<AudioManager>();
     }
 
     void Update()
@@ -24,6 +27,7 @@ public class TimeRemap : MonoBehaviour
     		}
     		audioManager.updatePitch();
     		Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    		UnityEngine.Debug.Log(Time.timeScale);
 		}
     }
 
