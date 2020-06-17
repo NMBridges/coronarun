@@ -61,119 +61,115 @@ public class BotControllerScript : MonoBehaviour
     
     void FixedUpdate()
     {
-        if(Input.GetButtonDown("Jump"))
-        {
-            botIsMoving = false;
-        }
     	transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     	if(botIsMoving)
     	{
     		anim.enabled = true;
     		anim.GetBoneTransform(HumanBodyBones.Hips).transform.position = anim.transform.position;
-    	}
-    	if(turnTiles != tp)
-        {
-        	ResetTP();
-        	createTurnTilePoints();
-    	}
-    	if(OnTurnTile(new Vector2(transform.position.x, transform.position.z)))
-    	{
-    		if(!completedTurns.Contains(turnTileDir))
-    		{
-    			if(turnState == 0)
-    			{
-    				turnCounter = 0f;
-    				turnState = 1;
-    				rcen = listItemToCoordinate((int)turnTiles[turnTileDir].x);
-    				if(sign == 1f)
-    				{
-    					orient1 = (turnTiles[turnTileDir].y) * 180f / Mathf.PI;
-    					orient2 = (turnTiles[turnTileDir].z) * 180f / Mathf.PI;
-    				} else
-    				{
-    					orient1 = (turnTiles[turnTileDir].z + Mathf.PI) * 180f / Mathf.PI;
-    					orient2 = (turnTiles[turnTileDir].y + Mathf.PI) * 180f / Mathf.PI;
-    				}
-    			}
-    			if(turnState == 1)
-    			{
-	    			if(turnTiles[turnTileDir].y == 0f)
-		        	{
-		        		float yIn = transform.position.z - turnTilesLocation[turnTileDir].y + 5f;
-		        		float xFromLeft = (transform.position.x - turnTilesLocation[turnTileDir].x) * -Mathf.Sign(turnTiles[turnTileDir].z) * 0.95f + 5f;
-		        		if(sign * yIn >= sign * xFromLeft)
-		        		{
-		        			turnState = 2;
-                            if(sign == -1f)
+            if(turnTiles != tp)
+            {
+                ResetTP();
+                createTurnTilePoints();
+            }
+            if(OnTurnTile(new Vector2(transform.position.x, transform.position.z)))
+            {
+                if(!completedTurns.Contains(turnTileDir))
+                {
+                    if(turnState == 0)
+                    {
+                        turnCounter = 0f;
+                        turnState = 1;
+                        rcen = listItemToCoordinate((int)turnTiles[turnTileDir].x);
+                        if(sign == 1f)
+                        {
+                            orient1 = (turnTiles[turnTileDir].y) * 180f / Mathf.PI;
+                            orient2 = (turnTiles[turnTileDir].z) * 180f / Mathf.PI;
+                        } else
+                        {
+                            orient1 = (turnTiles[turnTileDir].z + Mathf.PI) * 180f / Mathf.PI;
+                            orient2 = (turnTiles[turnTileDir].y + Mathf.PI) * 180f / Mathf.PI;
+                        }
+                    }
+                    if(turnState == 1)
+                    {
+                        if(turnTiles[turnTileDir].y == 0f)
+                        {
+                            float yIn = transform.position.z - turnTilesLocation[turnTileDir].y + 5f;
+                            float xFromLeft = (transform.position.x - turnTilesLocation[turnTileDir].x) * -Mathf.Sign(turnTiles[turnTileDir].z) * 0.95f + 5f;
+                            if(sign * yIn >= sign * xFromLeft)
                             {
-                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, transform.position.z);
+                                turnState = 2;
+                                if(sign == -1f)
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, transform.position.z);
+                                } else
+                                {
+                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f * Mathf.Sign(turnTiles[turnTileDir].z));
+                                }
+                            }
+                        } else
+                        {
+                            if(turnTiles[turnTileDir].y < 0f)
+                            {
+                                float yIn = turnTilesLocation[turnTileDir].x - transform.position.x + 5f;
+                                float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
+                                if(sign * yIn >= sign * xFromLeft)
+                                {
+                                    turnState = 2;
+                                    if(sign == 1f)
+                                    {
+                                        transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f,turnTilesLocation[turnTileDir].y - 4.25f);
+                                    } else
+                                    {
+                                        transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
+                                    }
+                                }
                             } else
                             {
-                                transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f * Mathf.Sign(turnTiles[turnTileDir].z));
+                                float yIn = transform.position.x - turnTilesLocation[turnTileDir].x + 5f;
+                                float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
+                                if(sign * yIn >= sign * xFromLeft)
+                                {
+                                    turnState = 2;
+                                    if(sign == 1f)
+                                    {
+                                        transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
+                                    } else
+                                    {
+                                        transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y - 4.25f);
+                                    }
+                                }
                             }
-		        		}
-		    		} else
-		    		{
-		    			if(turnTiles[turnTileDir].y < 0f)
-		    			{
-		    				float yIn = turnTilesLocation[turnTileDir].x - transform.position.x + 5f;
-		        			float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
-		        			if(sign * yIn >= sign * xFromLeft)
-			        		{
-			        			turnState = 2;
-                                if(sign == 1f)
-                                {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f,turnTilesLocation[turnTileDir].y - 4.25f);
-                                } else
-                                {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
-                                }
-			        		}
-						} else
-						{
-							float yIn = transform.position.x - turnTilesLocation[turnTileDir].x + 5f;
-							float xFromLeft = (turnTilesLocation[turnTileDir].y - transform.position.z) + 5f;
-							if(sign * yIn >= sign * xFromLeft)
-							{
-								turnState = 2;
-                                if(sign == 1f)
-                                {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x - 4.25f, 0f, turnTilesLocation[turnTileDir].y + 4.25f);
-                                } else
-                                {
-                                    transform.position = new Vector3(turnTilesLocation[turnTileDir].x + 4.25f, 0f, turnTilesLocation[turnTileDir].y - 4.25f);
-                                }
-							}
-						}
-		    		}
-    			}
-    			if(turnState == 2)
-    			{
-    				nRigid.velocity = Vector3.zero;
-    				turnCounter += 5f * Time.fixedDeltaTime;
-    				if(turnCounter >= 1f)
-    				{
-    					turnCounter = 1f;
-    					turnState = 0;
-    					completedTurns.Add(turnTileDir);
-    				}
-    				transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, turnCounter), 0f);
-    			}
-    			movement(0f);
-    		} else
-    		{
-    			movement(1f);
-	    	}
-		} else
-		{
-			movement(1f);
-		}
-        if(infected)
-        {
-            if(Time.time - lastCoughTime > 2f && Random.value > 0.95 && botIsMoving)
+                        }
+                    }
+                    if(turnState == 2)
+                    {
+                        nRigid.velocity = Vector3.zero;
+                        turnCounter += 5f * Time.fixedDeltaTime;
+                        if(turnCounter >= 1f)
+                        {
+                            turnCounter = 1f;
+                            turnState = 0;
+                            completedTurns.Add(turnTileDir);
+                        }
+                        transform.rotation = Quaternion.Euler(0f, Mathf.SmoothStep(orient1, orient2, turnCounter), 0f);
+                    }
+                    movement(0f);
+                } else
+                {
+                    movement(1f);
+                }
+            } else
             {
-                GenCough();
-                lastCoughTime = Time.time;
+                movement(1f);
+            }
+            if(infected)
+            {
+                if(Time.time - lastCoughTime > 2f && Random.value > 0.95 && botIsMoving)
+                {
+                    GenCough();
+                    lastCoughTime = Time.time;
+                }
             }
         }
     }
@@ -215,7 +211,8 @@ public class BotControllerScript : MonoBehaviour
     	foreach(Collider u in allColliders)
     	{
 			u.enabled = isRagdoll;
-			u.gameObject.GetComponent<Rigidbody>().useGravity = isRagdoll;
+            u.gameObject.GetComponent<Rigidbody>().useGravity = isRagdoll;
+			u.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			if(u.gameObject != gameObject)
 			{
 				u.gameObject.GetComponent<Rigidbody>().AddForce(force);
@@ -279,7 +276,7 @@ public class BotControllerScript : MonoBehaviour
         {
             nRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
-            doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
+            doRagdoll(true, 200f * (4f * col.contacts[0].normal + 2f * velooo));
             botIsMoving = false;
         }
     }

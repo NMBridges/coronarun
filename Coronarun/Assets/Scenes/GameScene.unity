@@ -2245,7 +2245,6 @@ MonoBehaviour:
   playerVelo: {x: 0, y: 0, z: 0}
   skid: {fileID: 9111079808696000978, guid: 7201f45635883df43ab9179ec9377174, type: 3}
   blood: {fileID: 6868075060512229381, guid: f8e6e0a01d3630249be522ddb3c01610, type: 3}
-  timeManager: {fileID: 161043842}
   turning: 0
   playerIsMoving: 0
   coronaLevel: 0

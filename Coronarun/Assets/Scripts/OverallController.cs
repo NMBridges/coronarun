@@ -237,18 +237,18 @@ public class OverallController : MonoBehaviour
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
             playerIsMoving = false;
-            timeManager.SlowMotion();
             FindObjectOfType<AudioManager>().Play("CarThud");
             StartCoroutine(goBackToMainMenu());
-        }
-        if(col.gameObject.tag == "botbruh")
-        {
-            //pRigid.velocity = Vector3.zero;
-            Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
-            doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
-            playerIsMoving = false;
             timeManager.SlowMotion();
+        }
+        if(col.gameObject.tag == "botbruh" && playerIsMoving)
+        {
+            pRigid.velocity = Vector3.zero;
+            Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
+            doRagdoll(true, 200f * (2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
+            playerIsMoving = false;
             StartCoroutine(goBackToMainMenu());
+            timeManager.SlowMotion();
         }
     }
 

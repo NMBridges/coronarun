@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class TimeRemap : MonoBehaviour
 {
@@ -27,7 +28,6 @@ public class TimeRemap : MonoBehaviour
     		}
     		audioManager.updatePitch();
     		Time.fixedDeltaTime = 0.02f * Time.timeScale;
-    		UnityEngine.Debug.Log(Time.timeScale);
 		}
     }
 
