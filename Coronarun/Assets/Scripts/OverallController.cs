@@ -100,7 +100,6 @@ public class OverallController : MonoBehaviour
             pRigid.velocity = new Vector3(pRigid.velocity.x * 0.7f, pRigid.velocity.y, pRigid.velocity.z * 0.7f);
         } else
         {
-            pRigid.velocity = new Vector3(pRigid.velocity.x * 0.9f, pRigid.velocity.y, pRigid.velocity.z * 0.9f);
             if(transform.position.y < 0f)
             {
                 transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
@@ -189,7 +188,7 @@ public class OverallController : MonoBehaviour
 			c.gameObject.GetComponent<Rigidbody>().useGravity = isRagdoll;
 			if(c.gameObject != gameObject)
 			{
-				c.gameObject.GetComponent<Rigidbody>().AddForce(force * Time.timeScale);
+				c.gameObject.GetComponent<Rigidbody>().AddForce(force);
 			}
     	}
     	boxCollider.enabled = !isRagdoll;
@@ -228,7 +227,7 @@ public class OverallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-    	if(col.gameObject.tag == "carsbruh")
+    	if(col.gameObject.tag == "carsbruh" && playerIsMoving)
         {
             if(playerIsMoving)
             {

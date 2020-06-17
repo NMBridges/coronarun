@@ -218,7 +218,7 @@ public class BotControllerScript : MonoBehaviour
 			u.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			if(u.gameObject != gameObject)
 			{
-				u.gameObject.GetComponent<Rigidbody>().AddForce(force * Time.timeScale);
+				u.gameObject.GetComponent<Rigidbody>().AddForce(force);
 			}
     	}
     	boxCollider.enabled = !isRagdoll;
