@@ -84,8 +84,9 @@ public class OverallController : MonoBehaviour
     	x = Input.GetAxis("Horizontal") * 5f;
         if(Input.GetButtonDown("Jump"))
         {
-        	playerIsMoving = false;
+        	//playerIsMoving = false;
             pRigid.velocity = Vector3.zero;
+            timeManager.SlowMotion();
         }
     }
 
@@ -106,7 +107,7 @@ public class OverallController : MonoBehaviour
                 pRigid.velocity = Vector3.zero;
             }
         }
-        pRigid.AddForce(Vector3.down * 20f);
+        pRigid.AddForce(Vector3.down * 20f / Time.timeScale);
     }
 
     void turnScript()
@@ -188,7 +189,7 @@ public class OverallController : MonoBehaviour
 			c.gameObject.GetComponent<Rigidbody>().useGravity = isRagdoll;
 			if(c.gameObject != gameObject)
 			{
-				c.gameObject.GetComponent<Rigidbody>().AddForce(force);
+				c.gameObject.GetComponent<Rigidbody>().AddForce(force * Time.timeScale);
 			}
     	}
     	boxCollider.enabled = !isRagdoll;
@@ -245,7 +246,7 @@ public class OverallController : MonoBehaviour
         {
             pRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
-            doRagdoll(true, 200f * (2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
+            doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
             playerIsMoving = false;
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();

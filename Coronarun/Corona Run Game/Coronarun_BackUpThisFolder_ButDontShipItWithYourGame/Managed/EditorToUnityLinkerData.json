@@ -7,6 +7,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -17,6 +18,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -27,6 +29,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -37,6 +40,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -47,6 +51,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -57,6 +62,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -67,6 +73,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -77,6 +84,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -87,6 +95,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -97,6 +106,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -121,6 +131,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -138,6 +149,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -169,6 +181,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -270,6 +283,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -290,6 +304,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -310,6 +325,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -350,6 +366,7 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -360,6 +377,7 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -410,6 +428,7 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -420,6 +439,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -480,6 +500,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -490,6 +511,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -519,7 +541,8 @@
             "fullManagedTypeName": "UnityEngine.Sprite",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/StartScreen.unity"
+                "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -529,6 +552,18 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
+                "Assets/Scenes/GameScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "CanvasGroup",
+            "fullManagedTypeName": "UnityEngine.CanvasGroup",
+            "moduleName": "UI",
+            "usedInScenes": [
+                "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -539,6 +574,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -568,6 +604,7 @@
             "moduleName": "AI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -578,6 +615,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
+                "Assets/Scenes/OptionsScene.unity",
                 "Assets/Scenes/GameScene.unity"
             ]
         },
@@ -739,7 +777,35 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "FadeInScript",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "FindLoadingType",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "LaneDividerScript",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "LoadingScreen",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "LoadingScreenColor",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -781,6 +847,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "Readme",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "RoadBlockScript",
             "moduleName": "",
             "usedInScenes": []
@@ -803,6 +876,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "TimeRemap",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TransitionManager",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1026,7 +1106,28 @@
         {
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ColorAdjustments",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.DepthOfField",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.ForwardRendererData",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.LensDistortion",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1062,6 +1163,13 @@
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_Dropdown",
             "moduleName": "",
             "usedInScenes": []
         },

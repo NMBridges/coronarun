@@ -171,6 +171,9 @@ public class BotControllerScript : MonoBehaviour
                     lastCoughTime = Time.time;
                 }
             }
+        } else
+        {
+            
         }
     }
 
@@ -215,7 +218,7 @@ public class BotControllerScript : MonoBehaviour
 			u.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			if(u.gameObject != gameObject)
 			{
-				u.gameObject.GetComponent<Rigidbody>().AddForce(force);
+				u.gameObject.GetComponent<Rigidbody>().AddForce(force * Time.timeScale);
 			}
     	}
     	boxCollider.enabled = !isRagdoll;
@@ -276,7 +279,7 @@ public class BotControllerScript : MonoBehaviour
         {
             nRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
-            doRagdoll(true, 200f * (4f * col.contacts[0].normal + 2f * velooo));
+            doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
             botIsMoving = false;
         }
     }

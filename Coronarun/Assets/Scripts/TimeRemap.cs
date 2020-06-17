@@ -28,6 +28,7 @@ public class TimeRemap : MonoBehaviour
     		}
     		audioManager.updatePitch();
     		Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    		
 		}
     }
 
