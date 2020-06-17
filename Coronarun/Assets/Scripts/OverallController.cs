@@ -265,6 +265,7 @@ public class OverallController : MonoBehaviour
             playerIsMoving = false;
             timeManager.SlowMotion();
             FindObjectOfType<AudioManager>().Play("CarThud");
+            StartCoroutine(goBackToMainMenu());
         }
         if(col.gameObject.tag == "botbruh")
         {
@@ -273,6 +274,7 @@ public class OverallController : MonoBehaviour
             doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
             playerIsMoving = false;
             timeManager.SlowMotion();
+            StartCoroutine(goBackToMainMenu());
         }
     }
 
@@ -290,6 +292,12 @@ public class OverallController : MonoBehaviour
         {
             coronaLevel += 1;
         }
+    }
+
+    IEnumerator goBackToMainMenu()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.Find("EventSystem").GetComponent<TransitionManager>().gameToMain();
     }
     
     void createTurnTilePoints()

@@ -62,4 +62,8 @@ public class TransitionManager : MonoBehaviour
     {
     	transition = 3;
     }
+    public void gameToMain()
+    {
+    	transition = 1;
+    }
 }
