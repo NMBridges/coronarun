@@ -275,7 +275,7 @@ public class BotControllerScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-    	if(col.gameObject.tag == "Player")
+    	if(col.gameObject.tag == "Player" && botIsMoving)
         {
             nRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;

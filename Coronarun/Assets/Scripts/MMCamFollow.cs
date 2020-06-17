@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class MMCamFollow : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
     	float x = Mathf.Clamp((Input.mousePosition.y - Screen.height / 2f) / 50f, -7f, 7f);

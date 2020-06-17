@@ -17,6 +17,8 @@ public class MMMousePoint : MonoBehaviour
 	float quitProgress;
 	bool quitTouched;
 	int click;
+	int loadStage;
+	float perc;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class MMMousePoint : MonoBehaviour
         optionsProgress = 0f;
         quitProgress = 0f;
         click = 0;
+        loadStage = 0;
     }
 
     void Update()
@@ -55,25 +58,26 @@ public class MMMousePoint : MonoBehaviour
     		{
     			playProgress += (1f - playProgress) * 5f * Time.deltaTime;
     			playTouched = true;
-    			if(click == 2)
+    			if(click == 2 && loadStage == 0)
     			{
-    				SceneManager.LoadSceneAsync("GameScene");
+    				loadStage = 1;
+    				perc = 0f;
     			}
     		}
     		if(result.gameObject.tag == "optionsbutton")
     		{
     			optionsProgress += (1f - optionsProgress) * 5f * Time.deltaTime;
     			optionsTouched = true;
-    			if(click == 2)
+    			if(click == 2 && loadStage == 0)
     			{
-    				
+    				GameObject.Find("EventSystem").GetComponent<TransitionManager>().mainToOptions();
     			}
     		}
     		if(result.gameObject.tag == "quitbutton")
     		{
     			quitProgress += (1f - quitProgress) * 5f * Time.deltaTime;
     			quitTouched = true;
-    			if(click == 2)
+    			if(click == 2 && loadStage == 0)
     			{
     				Application.Quit();
     			}
@@ -99,5 +103,28 @@ public class MMMousePoint : MonoBehaviour
 		{
 			click = 0;
 		}
+		if(loadStage > 0)
+		{
+			load();
+		}
     }
+
+    void load()
+    {
+    	if(loadStage == 1)
+    	{
+    		perc += 2f * Time.deltaTime;
+    		if(perc > 1f)
+    		{
+    			perc = 1f;
+    			loadStage = 2;
+    		}
+    		GameObject.Find("blackscreen").GetComponent<CanvasGroup>().alpha = perc;
+    	} else if(loadStage == 2)
+    	{
+    		SceneManager.LoadScene("GameScene");
+    	}
+    }
+
+    
 }
