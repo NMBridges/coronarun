@@ -76,7 +76,7 @@ public class CarScript : MonoBehaviour
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 destroyTrigger = true;
-            } else if(carIsMoving)
+            } else
             {
                 transform.localScale = new Vector3(1f, Mathf.SmoothStep(0.01f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
             }
@@ -87,10 +87,6 @@ public class CarScript : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
-        if(Input.GetButtonDown("Jump"))
-        {
-            carIsMoving = false;
         }
     }
 
@@ -225,4 +221,21 @@ public class CarScript : MonoBehaviour
     	}
     	return false;
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            cRigid.velocity = Vector3.zero;
+        }
+    }
+
+    void OnCollisionStay(Collision col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            cRigid.velocity = Vector3.zero;
+        }
+    }
+
 }

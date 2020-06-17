@@ -27,7 +27,6 @@ public class TimeScaleForRagdoll : MonoBehaviour
         		rig.velocity = rig.velocity.normalized * 5.5f;
         	}
         	lastTimeScale = Time.timeScale;
-        	UnityEngine.Debug.Log(rig.velocity);
         }
     }
 }
