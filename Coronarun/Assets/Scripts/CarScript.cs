@@ -227,6 +227,9 @@ public class CarScript : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             cRigid.velocity = Vector3.zero;
+        } else if(col.gameObject.tag == "carsbruh")
+        {
+            UnityEngine.Debug.Log("DOUBLE CAR STACK");
         }
     }
 

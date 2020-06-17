@@ -161,6 +161,10 @@ public class BuildingCaller : MonoBehaviour
                     carx = sign * dir.y * 1.75f;
                     cary = - sign * dir.x * 1.75f;
                     GenerateCar(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
+                    sign = -sign;
+                    carx = sign * dir.y * 1.75f;
+                    cary = - sign * dir.x * 1.75f;
+                    GenerateCar(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
                     sign = - signH;
                     carx = - sign * dir.y * 4.25f;
                     cary = sign * dir.x * 4.25f;
