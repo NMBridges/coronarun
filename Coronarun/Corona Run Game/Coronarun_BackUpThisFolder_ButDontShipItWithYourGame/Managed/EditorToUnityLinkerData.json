@@ -7,8 +7,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -18,8 +18,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -29,8 +29,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -40,8 +40,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -51,8 +51,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -62,8 +62,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -73,8 +73,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -84,8 +84,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -95,8 +95,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -106,8 +106,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -131,8 +131,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -149,8 +149,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -181,8 +181,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -283,8 +283,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -304,8 +304,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -325,8 +325,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -366,8 +366,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -377,8 +377,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -428,8 +428,8 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -439,8 +439,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -500,8 +500,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -511,8 +511,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -552,8 +552,8 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -563,8 +563,26 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "AudioClip",
+            "fullManagedTypeName": "UnityEngine.AudioClip",
+            "moduleName": "Audio",
+            "usedInScenes": [
+                "Assets/Scenes/StartScreen.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "",
+            "nativeClass": "SampleClip",
+            "fullManagedTypeName": "",
+            "moduleName": "Audio",
+            "usedInScenes": [
+                "Assets/Scenes/StartScreen.unity"
             ]
         },
         {
@@ -574,8 +592,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -604,8 +622,8 @@
             "moduleName": "AI",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -615,8 +633,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/OptionsScene.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -678,24 +696,6 @@
             "nativeClass": "RenderTexture",
             "fullManagedTypeName": "UnityEngine.RenderTexture",
             "moduleName": "Core",
-            "usedInScenes": [
-                "Assets/Scenes/GameScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "AudioClip",
-            "fullManagedTypeName": "UnityEngine.AudioClip",
-            "moduleName": "Audio",
-            "usedInScenes": [
-                "Assets/Scenes/GameScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "",
-            "nativeClass": "SampleClip",
-            "fullManagedTypeName": "",
-            "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/GameScene.unity"
             ]
@@ -833,6 +833,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "MusicInitializer",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "OutlineFeature",
             "moduleName": "",
             "usedInScenes": []
@@ -841,13 +848,6 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "OverallController",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "Assembly-CSharp.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "Readme",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -876,6 +876,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "TimeRemap",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TimeScaleForRagdoll",
             "moduleName": "",
             "usedInScenes": []
         },

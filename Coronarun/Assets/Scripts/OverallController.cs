@@ -63,7 +63,6 @@ public class OverallController : MonoBehaviour
         turning = 0;
         turnTileDir = 0;
         timeManager = GameObject.Find("EventSystem").GetComponent<TimeRemap>();
-        FindObjectOfType<AudioManager>().Play("Song");
     }
 
     // Update is called once per frame
@@ -247,6 +246,7 @@ public class OverallController : MonoBehaviour
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
             playerIsMoving = false;
+            FindObjectOfType<AudioManager>().Play("BotThud");
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
         }

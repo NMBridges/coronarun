@@ -35,8 +35,8 @@ public class BuildingCaller : MonoBehaviour
     void Awake()
     {
         notClearing = true;
-    	gridWidth = 5000f;
-        gridHeight = 30000f;
+    	gridWidth = 3000f;
+        gridHeight = 10000f;
         gridScale = 10f;
         alreadyBuilt = new List<int>();
         checkTemp = new int[24];

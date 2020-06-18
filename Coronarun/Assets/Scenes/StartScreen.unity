@@ -432,6 +432,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!1 &99748926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99748928}
+  - component: {fileID: 99748927}
+  m_Layer: 0
+  m_Name: FirstMusicCaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &99748927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99748926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d9a1151a8f9ad4ca6881db2c0bfe45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &99748928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99748926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186421201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,6 +3809,8 @@ GameObject:
   - component: {fileID: 1827817967}
   - component: {fileID: 1827817966}
   - component: {fileID: 1827817965}
+  - component: {fileID: 1827817970}
+  - component: {fileID: 1827817969}
   - component: {fileID: 1827817968}
   m_Layer: 0
   m_Name: EventSystem
@@ -3834,6 +3879,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1df240c7c4c75847824a726d24c74ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1827817969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827817964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3b4adfc9ae3b24688962136b22c2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: CarThud
+    clip: {fileID: 8300000, guid: 9527f823cda26d44fb561c52b35e96b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Song
+    clip: {fileID: 8300000, guid: 2a17dbb2b017a884ab4f2c9beb34a942, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BotThud
+    clip: {fileID: 8300000, guid: 193da3f662099c0439638b85cd132bb6, type: 3}
+    volume: 0.582
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &1827817970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827817964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ab47f9184d7734cac223ef67f526b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFactor: 0
+  slowdownLength: 0
+  audioManager: {fileID: 1827817969}
 --- !u!1 &1883689447
 GameObject:
   m_ObjectHideFlags: 0
