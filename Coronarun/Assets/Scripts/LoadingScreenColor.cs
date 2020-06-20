@@ -6,6 +6,7 @@ public class LoadingScreenColor : MonoBehaviour
 {
     public Color col;
     public int valu;
+    public float volumee;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class LoadingScreenColor : MonoBehaviour
         } else
         {
             valu = 0;
+            volumee = 0.5f;
         }
     }
 
@@ -32,5 +34,10 @@ public class LoadingScreenColor : MonoBehaviour
     		col = new Color(0f, 0f, 0f, 1f);
     	}
         valu = val;
+    }
+
+    public void HandleVolumeData(float val)
+    {
+        volumee = val;
     }
 }

@@ -522,7 +522,8 @@
             "moduleName": "TextRendering",
             "usedInScenes": [
                 "Assets/Scenes/StartScreen.unity",
-                "Assets/Scenes/GameScene.unity"
+                "Assets/Scenes/GameScene.unity",
+                "Assets/Scenes/OptionsScene.unity"
             ]
         },
         {
@@ -1113,6 +1114,20 @@
         {
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ChannelMixer",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ChromaticAberration",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.ColorAdjustments",
             "moduleName": "",
             "usedInScenes": []
@@ -1120,7 +1135,28 @@
         {
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ColorCurves",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ColorLookup",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.DepthOfField",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.FilmGrain",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1141,7 +1177,49 @@
         {
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.LiftGammaGain",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.MotionBlur",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.PaniniProjection",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.PostProcessData",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.SplitToning",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.Tonemapping",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1170,6 +1248,20 @@
             "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.Vignette",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.Universal.WhiteBalance",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1205,6 +1297,13 @@
             "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
             "fullManagedTypeName": "TMPro.TMP_StyleSheet",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_SubMeshUI",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1303,6 +1402,13 @@
             "managedAssemblyName": "UnityEngine.UI.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.UI.Scrollbar",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.UI.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.UI.Slider",
             "moduleName": "",
             "usedInScenes": []
         },

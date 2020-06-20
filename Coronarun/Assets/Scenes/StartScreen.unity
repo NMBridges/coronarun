@@ -3905,8 +3905,8 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: BotThud
-    clip: {fileID: 8300000, guid: 193da3f662099c0439638b85cd132bb6, type: 3}
-    volume: 0.582
+    clip: {fileID: 8300000, guid: 267a442df18347045a9240878ce0bbd1, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
