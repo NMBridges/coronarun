@@ -70,6 +70,8 @@ public class OverallController : MonoBehaviour
         timeManager = GameObject.Find("EventSystem").GetComponent<TimeRemap>();
         score = 0;
         startTime = Time.time;
+        GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.color = new Color(0.73f, 0.73f, 0.73f, 0f);
+        UnityEngine.Debug.Log(GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color);
     }
 
     // Update is called once per frame
@@ -86,7 +88,9 @@ public class OverallController : MonoBehaviour
         if(playerIsMoving)
         {
             score = (int)Mathf.Floor((Time.time - startTime) * 30f);
-            GameObject.Find("ScoreText").GetComponent<TMPro.TextMeshProUGUI>().text = " " + score;
+            GameObject.Find("ScoreText").GetComponent<Text>().text = " " + score;
+            float cola = GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color.a;
+            GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color = new Color(0.7264151f, 0.7264151f, 0.7264151f, Mathf.Clamp(cola - 0.002f, 0f, 1f));
         }
     }
 
@@ -102,6 +106,15 @@ public class OverallController : MonoBehaviour
 
     void movement()
     {
+        if(coronaLevel >= 15)
+        {
+            doRagdoll(true, 200f * pRigid.velocity);
+            pRigid.velocity = Vector3.zero;
+            playerIsMoving = false;
+            StartCoroutine(goBackToMainMenu());
+            timeManager.SlowMotion();
+            StartCoroutine(GenScoreFX());
+        }
         if(playerIsMoving)
         {
             playerVelo = new Vector3(x, 0f, 0f);
@@ -299,6 +312,8 @@ public class OverallController : MonoBehaviour
         if(col.tag == "coughbruh")
         {
             coronaLevel += 1;
+            float cola = GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color.a;
+            GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color = new Color(0.7264151f, 0.7264151f, 0.7264151f, Mathf.Clamp(cola + 0.2f, 0f, 1f));
         }
     }
 

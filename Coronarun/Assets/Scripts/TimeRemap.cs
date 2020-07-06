@@ -34,9 +34,12 @@ public class TimeRemap : MonoBehaviour
 
     public void SlowMotion()
     {
-    	Time.timeScale = timeFactor;
-    	Time.fixedDeltaTime = 0.02f * Time.timeScale;
-    	updating = true;
-    	audioManager.updatePitch();
+        if(!updating)
+        {
+        	Time.timeScale = timeFactor;
+        	Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        	updating = true;
+        	audioManager.updatePitch();
+        }
     }
 }
