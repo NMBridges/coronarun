@@ -9,6 +9,7 @@ public class OverallController : MonoBehaviour
     public Vector3 playerVelo;
     public Transform skid;
     public Transform blood;
+    public Transform deathScoreParticles;
     TimeRemap timeManager;
     float playerDir;
     float speed;
@@ -32,6 +33,9 @@ public class OverallController : MonoBehaviour
     Material bodyMat;
     Color healthyColor;
     Color coronaColor;
+    bool resetJump;
+    int score;
+    float startTime;
 
     void Awake()
     {
@@ -48,6 +52,7 @@ public class OverallController : MonoBehaviour
         playerDir = 0f;
         playerVelo = new Vector3(speed * Mathf.Sin(playerDir), 0f, speed * Mathf.Cos(playerDir));
         playerIsMoving = true;
+        resetJump = true;
         skidding = false;
         coronaLevel = 0;
         bodyMat = gameObject.GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<Renderer>().material;
@@ -63,29 +68,35 @@ public class OverallController : MonoBehaviour
         turning = 0;
         turnTileDir = 0;
         timeManager = GameObject.Find("EventSystem").GetComponent<TimeRemap>();
+        score = 0;
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+        input();
         turnScript();
         updateColor();
     }
 
     void FixedUpdate()
     {
-        input();
         movement();
+        if(playerIsMoving)
+        {
+            score = (int)Mathf.Floor((Time.time - startTime) * 30f);
+            GameObject.Find("ScoreText").GetComponent<TMPro.TextMeshProUGUI>().text = " " + score;
+        }
     }
 
     void input()
     {
     	x = Input.GetAxis("Horizontal") * 5f;
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && playerIsMoving && resetJump)
         {
-        	//playerIsMoving = false;
-            pRigid.velocity = Vector3.zero;
-            timeManager.SlowMotion();
+            pRigid.AddForce(Vector3.up * 400f);
+            resetJump = false;
         }
     }
 
@@ -226,6 +237,7 @@ public class OverallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        resetJump = true;
     	if(col.gameObject.tag == "carsbruh" && playerIsMoving)
         {
             if(playerIsMoving)
@@ -239,6 +251,7 @@ public class OverallController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("CarThud");
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
+            StartCoroutine(GenScoreFX());
         }
         if(col.gameObject.tag == "botbruh" && playerIsMoving)
         {
@@ -250,15 +263,33 @@ public class OverallController : MonoBehaviour
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
         }
+        if(col.gameObject.tag == "firehydrantbruh" && playerIsMoving)
+        {
+            pRigid.velocity = Vector3.zero;
+            doRagdoll(true, 200f * (Vector3.up + 2f * pRigid.velocity + 4f * col.contacts[0].normal));
+            playerIsMoving = false;
+            FindObjectOfType<AudioManager>().Play("BotThud");
+            StartCoroutine(goBackToMainMenu());
+            timeManager.SlowMotion();
+        }
+        if(col.gameObject.tag == "garbagecanbruh" && playerIsMoving)
+        {
+            pRigid.velocity = Vector3.zero;
+            doRagdoll(true, 200f * (Vector3.up + 2f * pRigid.velocity + 4f * col.contacts[0].normal));
+            playerIsMoving = false;
+            FindObjectOfType<AudioManager>().Play("BotThud");
+            StartCoroutine(goBackToMainMenu());
+            timeManager.SlowMotion();
+        }
     }
 
-    private void OnCollisionExit(Collision colll)
+    /*private void OnCollisionExit(Collision colll)
     {
     	if(colll.gameObject.tag != "ground")
     	{
     		
 		}
-    }
+    }*/
 
     private void OnParticleCollision(GameObject col)
     {
@@ -313,6 +344,13 @@ public class OverallController : MonoBehaviour
     {
         Transform parent = transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Transform>();
         Transform temp = Instantiate(blood, pos, Quaternion.LookRotation(rot, Vector3.up), parent);
+    }
+
+    private IEnumerator GenScoreFX()
+    {
+        Transform temp = Instantiate(deathScoreParticles, GameObject.Find("PreProcessedCanvas").GetComponent<Transform>());
+        yield return new WaitForSeconds(2f);
+        Destroy(temp.gameObject);
     }
 
     void OnGUI()

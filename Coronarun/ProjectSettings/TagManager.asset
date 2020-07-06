@@ -12,6 +12,8 @@ TagManager:
   - playbutton
   - optionsbutton
   - quitbutton
+  - firehydrantbruh
+  - garbagecanbruh
   layers:
   - Default
   - TransparentFX

@@ -80,11 +80,11 @@ public class CarScript : MonoBehaviour
                 destroyTrigger = true;
             } else
             {
-                transform.localScale = new Vector3(1f, Mathf.SmoothStep(0.01f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
+                transform.localScale = new Vector3(1f, Mathf.SmoothStep(0.1f, 1f, (Mathf.InverseLerp(56f, 20f, fDist))), 1f);
             }
         } else
         {
-            transform.localScale = new Vector3(1f, 0.01f, 1f);
+            transform.localScale = new Vector3(1f, 0.1f, 1f);
             if(destroyTrigger && carIsMoving)
             {
                 Destroy(gameObject);
@@ -96,6 +96,7 @@ public class CarScript : MonoBehaviour
     void FixedUpdate()
     {
     	transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        cRigid.velocity = new Vector3(cRigid.velocity.x, 0f, cRigid.velocity.z);
         if(turnTiles != tp)
         {
         	ResetTP();
@@ -166,11 +167,24 @@ public class CarScript : MonoBehaviour
             {
                 if(fDist < 56f)
                 {
-                    cRigid.AddForce(transform.forward * 3000f);
+                    RaycastHit hit;
+                    if(Physics.Raycast(transform.position + new Vector3(0f, 0.1f, 0f), transform.forward, out hit, 10f))
+                    {
+                        if(hit.transform.gameObject.tag != "carsbruh")
+                        {
+                            cRigid.AddForce(transform.forward * 3000f);
+                        }
+                    } else
+                    {
+                        cRigid.AddForce(transform.forward * 3000f);
+                    }
                     if(cRigid.velocity.magnitude > 10f)
                     {
                         cRigid.velocity = cRigid.velocity.normalized * 10f;
                     }
+                } else
+                {
+                    cRigid.velocity = Vector3.zero;
                 }
             }
         }

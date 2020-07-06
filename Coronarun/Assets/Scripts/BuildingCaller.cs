@@ -12,6 +12,8 @@ public class BuildingCaller : MonoBehaviour
     public Transform laneDivider;
     public Transform carGen;
     public Transform bot;
+    public Transform fireHydrant;
+    public Transform garbageCan;
     Vector2[] gridPoints;
     int[] gridValue;
     List<int> clearedGrid;
@@ -146,6 +148,10 @@ public class BuildingCaller : MonoBehaviour
                     carx = - sign * dir.y * 4.25f;
                     cary = sign * dir.x * 4.25f;
                     GenerateBot(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
+                    sign = (float)(Random.Range(0, 2) * 2 - 1);
+                    carx = - sign * dir.y * 3.78f;
+                    cary = sign * dir.x * 3.78f;
+                    GenerateFireHydrant(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
                 }
                 if(n == 3 && carOpt)
                 {
@@ -162,6 +168,10 @@ public class BuildingCaller : MonoBehaviour
                     carx = - sign * dir.y * 4.25f;
                     cary = sign * dir.x * 4.25f;
                     GenerateBot(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
+                    sign = (float)(Random.Range(0, 2) * 2 - 1);
+                    carx = - sign * dir.y * 3.75f;
+                    cary = sign * dir.x * 3.75f;
+                    GenerateGarbageCan(new Vector3(listItemToCoordinate(listNum).x + carx, sign,listItemToCoordinate(listNum).y + cary), (turn - Mathf.PI / 2f) + sign * Mathf.PI / 2f);
                 }
     			gridValue[listNum] = 0;
     			clearedGrid.Add(listNum);
@@ -303,5 +313,15 @@ public class BuildingCaller : MonoBehaviour
     void GenerateBot(Vector3 pos, float orientation)
     {
         Instantiate(bot, new Vector3(pos.x, pos.y, pos.z), Quaternion.Euler(0f, orientation * 180f / Mathf.PI, 0f));
+    }
+
+    void GenerateFireHydrant(Vector3 pos, float orientation)
+    {
+        Instantiate(fireHydrant, new Vector3(pos.x, 0f, pos.z), Quaternion.Euler(0f, orientation * 180f / Mathf.PI, 0f));
+    }
+
+    void GenerateGarbageCan(Vector3 pos, float orientation)
+    {
+        Instantiate(garbageCan, new Vector3(pos.x, 0f, pos.z), Quaternion.Euler(0f, orientation * 180f / Mathf.PI, 0f));
     }
 }
