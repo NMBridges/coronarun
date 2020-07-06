@@ -262,6 +262,7 @@ public class OverallController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("BotThud");
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
+            StartCoroutine(GenScoreFX());
         }
         if(col.gameObject.tag == "firehydrantbruh" && playerIsMoving)
         {
@@ -271,6 +272,7 @@ public class OverallController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("BotThud");
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
+            StartCoroutine(GenScoreFX());
         }
         if(col.gameObject.tag == "garbagecanbruh" && playerIsMoving)
         {
@@ -280,6 +282,7 @@ public class OverallController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("BotThud");
             StartCoroutine(goBackToMainMenu());
             timeManager.SlowMotion();
+            StartCoroutine(GenScoreFX());
         }
     }
 
@@ -349,7 +352,7 @@ public class OverallController : MonoBehaviour
     private IEnumerator GenScoreFX()
     {
         Transform temp = Instantiate(deathScoreParticles, GameObject.Find("PreProcessedCanvas").GetComponent<Transform>());
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(temp.gameObject);
     }
 
