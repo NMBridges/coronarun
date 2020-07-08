@@ -34,11 +34,11 @@ public class MMMousePoint : MonoBehaviour
 
     void Update()
     {
-    	if(Input.GetMouseButton(0))
+    	if(Input.GetMouseButton(0) || Input.GetButtonDown("Jump"))
     	{
     		click = 1;
     	}
-    	if(click == 1 && !Input.GetMouseButton(0))
+    	if(click == 1 && !Input.GetMouseButton(0) && !Input.GetButtonDown("Jump"))
     	{
     		click = 2;
     	}

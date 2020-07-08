@@ -8,6 +8,14 @@ public class TransitionManager : MonoBehaviour
 {
 	float perc;
 	int transition;
+    public int lastScore;
+    public int bestScore;
+    
+    void Awake()
+    {
+    	lastScore = 0;
+		bestScore = 0;
+    }
 
 	void Start()
 	{
@@ -33,6 +41,10 @@ public class TransitionManager : MonoBehaviour
 			GameObject.Find("blackscreen").GetComponent<CanvasGroup>().alpha = perc;
 		} else if(transition == 2)
 		{
+			if(lastScore > bestScore)
+			{
+				bestScore = lastScore;
+			}
 			SceneManager.LoadScene("StartScreen");
 			reset();
 		} else if(transition == 3)

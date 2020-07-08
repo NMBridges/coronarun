@@ -36,6 +36,18 @@ public class OverallController : MonoBehaviour
     bool resetJump;
     int score;
     float startTime;
+    float cola;
+    float colaGoal;
+    Color colorGreen;
+    Color colorRed;
+    Color colorGoal;
+    Color colorTransparent;
+    string[] coronaStatements;
+    string[] carStatements;
+    string[] fireHydrantStatements;
+    string[] botStatements;
+    string[] trashCanStatements;
+
 
     void Awake()
     {
@@ -70,11 +82,18 @@ public class OverallController : MonoBehaviour
         timeManager = GameObject.Find("EventSystem").GetComponent<TimeRemap>();
         score = 0;
         startTime = Time.time;
-        GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.color = new Color(0.73f, 0.73f, 0.73f, 0f);
-        UnityEngine.Debug.Log(GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color);
+        cola = 0f;
+        colaGoal = 0f;
+        colorGreen = new Color(0.164f, 0.274f, 0.156f, 1f);
+        colorRed = new Color(0.4f, 0.05f, 0.05f, 0.75f);
+        colorGoal = colorGreen;
+        colorTransparent = new Color(0.05f, 0.6f, 0.05f, 0.1f);
+        GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.SetColor("_Color", Color.Lerp(colorTransparent, colorGoal, cola));
+        GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+        deathText.SetActive(false);
+        statements();
     }
 
-    // Update is called once per frame
     void Update()
     {
         input();
@@ -89,9 +108,10 @@ public class OverallController : MonoBehaviour
         {
             score = (int)Mathf.Floor((Time.time - startTime) * 30f);
             GameObject.Find("ScoreText").GetComponent<Text>().text = " " + score;
-            float cola = GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color.a;
-            GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color = new Color(0.7264151f, 0.7264151f, 0.7264151f, Mathf.Clamp(cola - 0.002f, 0f, 1f));
+            colaGoal = Mathf.Clamp(colaGoal - 0.01f, 0f, 1f);
         }
+        cola += (colaGoal - cola) * 0.08f;
+        GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.SetColor("_Color", Color.Lerp(colorTransparent, colorGoal, cola));
     }
 
     void input()
@@ -106,9 +126,13 @@ public class OverallController : MonoBehaviour
 
     void movement()
     {
-        if(coronaLevel >= 15)
+        if(coronaLevel >= 8 && playerIsMoving)
         {
-            doRagdoll(true, 200f * pRigid.velocity);
+            doRagdoll(true, 50200f * pRigid.velocity);
+            GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+            deathText.SetActive(true);
+            deathText.GetComponent<TMPro.TextMeshProUGUI>().text = coronaStatements[Random.Range(0, coronaStatements.Length)];
+            colaGoal = 1f;
             pRigid.velocity = Vector3.zero;
             playerIsMoving = false;
             StartCoroutine(goBackToMainMenu());
@@ -130,6 +154,65 @@ public class OverallController : MonoBehaviour
             }
         }
         pRigid.AddForce(Vector3.down * 20f / Time.timeScale);
+    }
+
+    void statements()
+    {
+        coronaStatements = new string[]
+        {
+            "you caught  'rona... better luck next time",
+            "maintain social distancing!",
+            "that's what you get for not wearing a mask",
+            "death by coronavirus",
+            "6 feet astray keeps the reaper away",
+            "coughin to the coffin",
+            "wasted on  'rona",
+            "achoo"
+        };
+        carStatements = new string[]
+        {
+            "cars can hurt",
+            "big car little man",
+            "physics - albert einstein",
+            "bloody hell!",
+            "hahahaahah",
+            "splat",
+            "watch where you're going bro",
+            "not cool man you dented their car",
+            "got life insurance?",
+            "ouch!"
+        };
+        botStatements = new string[]
+        {
+            "he who runs into others is bad - gandhi",
+            "oops",
+            "shoulda seen the other guy!",
+            "this isn't WWE!",
+            "chill dude he's just walking down the street",
+            "get big bro",
+            "smacked"
+        };
+        trashCanStatements = new string[]
+        {
+            "you're the real trash here... lol",
+            "if garbage can you can too...",
+            "garbage!",
+            "thrashed by trash",
+            "bin there",
+            "crash",
+            "filthy",
+            "try jumping over it"
+        };
+        fireHydrantStatements = new string[]
+        {
+            "fire hydrants aren't meant to move...",
+            "now that's a stubbed toe",
+            "yowzers",
+            "try jumping over it",
+            "get  'em next time",
+            "at least  'rona didn't get ya",
+            "that's gotta hurt!"
+        };
     }
 
     void turnScript()
@@ -253,10 +336,12 @@ public class OverallController : MonoBehaviour
         resetJump = true;
     	if(col.gameObject.tag == "carsbruh" && playerIsMoving)
         {
-            if(playerIsMoving)
-            {
-                GenBlood(col.contacts[0].point, col.contacts[0].normal);
-            }
+            GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+            deathText.SetActive(true);
+            deathText.GetComponent<TMPro.TextMeshProUGUI>().text = carStatements[Random.Range(0, carStatements.Length)];
+            GenBlood(col.contacts[0].point, col.contacts[0].normal);
+            colaGoal = 1f;
+            colorGoal = colorRed;
             pRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 4f * col.contacts[0].normal + 2f * velooo));
@@ -268,6 +353,11 @@ public class OverallController : MonoBehaviour
         }
         if(col.gameObject.tag == "botbruh" && playerIsMoving)
         {
+            GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+            deathText.SetActive(true);
+            deathText.GetComponent<TMPro.TextMeshProUGUI>().text = botStatements[Random.Range(0, botStatements.Length)];
+            colaGoal = 1f;
+            colorGoal = colorRed;
             pRigid.velocity = Vector3.zero;
             Vector3 velooo = col.gameObject.GetComponent<Rigidbody>().velocity;
             doRagdoll(true, 200f * (Vector3.up + 2f * (pRigid.velocity + velooo) + 4f * col.contacts[0].normal));
@@ -279,6 +369,11 @@ public class OverallController : MonoBehaviour
         }
         if(col.gameObject.tag == "firehydrantbruh" && playerIsMoving)
         {
+            GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+            deathText.SetActive(true);
+            deathText.GetComponent<TMPro.TextMeshProUGUI>().text = fireHydrantStatements[Random.Range(0, fireHydrantStatements.Length)];
+            colaGoal = 1f;
+            colorGoal = colorRed;
             pRigid.velocity = Vector3.zero;
             doRagdoll(true, 200f * (Vector3.up + 2f * pRigid.velocity + 4f * col.contacts[0].normal));
             playerIsMoving = false;
@@ -289,6 +384,11 @@ public class OverallController : MonoBehaviour
         }
         if(col.gameObject.tag == "garbagecanbruh" && playerIsMoving)
         {
+            GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
+            deathText.SetActive(true);
+            deathText.GetComponent<TMPro.TextMeshProUGUI>().text = trashCanStatements[Random.Range(0, trashCanStatements.Length)];
+            colaGoal = 1f;
+            colorGoal = colorRed;
             pRigid.velocity = Vector3.zero;
             doRagdoll(true, 200f * (Vector3.up + 2f * pRigid.velocity + 4f * col.contacts[0].normal));
             playerIsMoving = false;
@@ -312,14 +412,14 @@ public class OverallController : MonoBehaviour
         if(col.tag == "coughbruh")
         {
             coronaLevel += 1;
-            float cola = GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color.a;
-            GameObject.Find("CoronaOverlay").GetComponent<Image>().material.color = new Color(0.7264151f, 0.7264151f, 0.7264151f, Mathf.Clamp(cola + 0.2f, 0f, 1f));
+            colaGoal = Mathf.Clamp(colaGoal + 0.6f, 0f, 1f);
         }
     }
 
     IEnumerator goBackToMainMenu()
     {
         yield return new WaitForSeconds(2);
+        GameObject.Find("EventSystem").GetComponent<TransitionManager>().lastScore = score;
         GameObject.Find("EventSystem").GetComponent<TransitionManager>().gameToMain();
     }
     
