@@ -109,6 +109,10 @@ public class OverallController : MonoBehaviour
             score = (int)Mathf.Floor((Time.time - startTime) * 30f);
             GameObject.Find("ScoreText").GetComponent<Text>().text = " " + score;
             colaGoal = Mathf.Clamp(colaGoal - 0.01f, 0f, 1f);
+            if(pRigid.velocity.magnitude < 1f)
+            {
+                transform.Translate((float)(Random.Range(0, 2) * 2 - 1) * new Vector3(0.2f, 0.2f, 0f));
+            }
         }
         cola += (colaGoal - cola) * 0.08f;
         GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.SetColor("_Color", Color.Lerp(colorTransparent, colorGoal, cola));
