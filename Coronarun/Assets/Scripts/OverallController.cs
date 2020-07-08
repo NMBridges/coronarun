@@ -47,6 +47,11 @@ public class OverallController : MonoBehaviour
     string[] fireHydrantStatements;
     string[] botStatements;
     string[] trashCanStatements;
+    float currPer;
+    float breathTime;
+    int breathState;
+    float lastBreathTime;
+    float timeAtBreath;
 
 
     void Awake()
@@ -92,6 +97,9 @@ public class OverallController : MonoBehaviour
         GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
         deathText.SetActive(false);
         statements();
+        currPer = 0f;
+        breathTime = 3f;
+        breathState = 0;
     }
 
     void Update()
@@ -126,6 +134,32 @@ public class OverallController : MonoBehaviour
             pRigid.AddForce(Vector3.up * 400f);
             resetJump = false;
         }
+        if(Input.GetKey("left shift"))
+        {
+            if(breathState == 0)
+            {
+                lastBreathTime = breathTime;
+                timeAtBreath = Time.time;
+                breathState = 1;
+            }
+            if(breathState == 1)
+            {
+                breathTime = lastBreathTime - (Time.time - timeAtBreath);
+                if(breathTime <= 0)
+                {
+                    breathTime = 0;
+                    breathState = 2;
+                }
+            }
+        }
+        if(breathState == 1)
+        {
+            if(!Input.GetKey("left shift"))
+            {
+                breathState = 0;
+            }
+        }
+        UnityEngine.Debug.Log(breathTime);
     }
 
     void movement()
@@ -286,9 +320,10 @@ public class OverallController : MonoBehaviour
 
     void updateColor()
     {
-        float percentage = ((float) coronaLevel) / 15f;
+        float percentage = ((float) coronaLevel) / 8f;
         percentage = Mathf.Clamp(percentage, 0f, 1f);
-        Color tempColor = Color.Lerp(healthyColor, coronaColor, percentage);
+        currPer += (percentage - currPer) * Time.deltaTime;
+        Color tempColor = Color.Lerp(healthyColor, coronaColor, currPer);
         bodyMat.SetColor("AlbedoInstance", tempColor);
     }
 
