@@ -184,7 +184,9 @@ public class OverallController : MonoBehaviour
             "watch where you're going bro",
             "not cool man you dented their car",
             "got life insurance?",
-            "ouch!"
+            "ouch!",
+            "you lost the battle of conservation of momentum",
+            "face meet car"
         };
         botStatements = new string[]
         {
