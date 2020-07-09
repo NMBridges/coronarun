@@ -2342,6 +2342,10 @@ MonoBehaviour:
   blood: {fileID: 6868075060512229381, guid: f8e6e0a01d3630249be522ddb3c01610, type: 3}
   deathScoreParticles: {fileID: 2888263030862053429, guid: 33f1720bcb82c5e46bd105acd109a67a,
     type: 3}
+  covidEffect: {fileID: 575442214853001375, guid: 8d296329c6ecd4e4da5a4491e48625f4,
+    type: 3}
+  starsEffect: {fileID: 5437523601812001746, guid: 2f1628ae39d56cd42985ab001056b3df,
+    type: 3}
   turning: 0
   playerIsMoving: 0
   coronaLevel: 0

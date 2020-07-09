@@ -31,8 +31,6 @@ public class CarScript : MonoBehaviour
     bool carIsMoving;
     float fDist;
 
-    // There is a Debug call for double cars. If the problem does not persist after a couple weeks then I will remove the call
-
     void Start()
     {
         positions = new Dictionary<int, Vector3>();
@@ -243,9 +241,6 @@ public class CarScript : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             cRigid.velocity = Vector3.zero;
-        } else if(col.gameObject.tag == "carsbruh")
-        {
-            UnityEngine.Debug.Log("DOUBLE CAR STACK");
         }
     }
 

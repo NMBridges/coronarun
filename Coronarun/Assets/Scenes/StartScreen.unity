@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1200,7 +1200,7 @@ Transform:
   m_LocalScale: {x: 8.38, y: 14.19, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!1 &375817158
 GameObject:
@@ -4843,18 +4843,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: CarThud
+    type: SFX
     clip: {fileID: 8300000, guid: 9527f823cda26d44fb561c52b35e96b9, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Song
+    type: song
     clip: {fileID: 8300000, guid: 2a17dbb2b017a884ab4f2c9beb34a942, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: BotThud
+    type: SFX
     clip: {fileID: 8300000, guid: 267a442df18347045a9240878ce0bbd1, type: 3}
     volume: 0.5
     pitch: 1

@@ -7,6 +7,8 @@ public class LoadingScreenColor : MonoBehaviour
     public Color col;
     public int valu;
     public float volumee;
+    public float volumeeq;
+    public int bloodval;
 
     void Awake()
     {
@@ -20,6 +22,8 @@ public class LoadingScreenColor : MonoBehaviour
         {
             valu = 0;
             volumee = 0.5f;
+            volumeeq = 1f;
+            bloodval = 0;
         }
     }
 
@@ -36,8 +40,18 @@ public class LoadingScreenColor : MonoBehaviour
         valu = val;
     }
 
+    public void HandleBloodInputData(int val)
+    {
+        bloodval = val;
+    }
+
     public void HandleVolumeData(float val)
     {
         volumee = val;
+    }
+
+    public void HandleSFXVolumeData(float valq)
+    {
+        volumeeq = valq;
     }
 }

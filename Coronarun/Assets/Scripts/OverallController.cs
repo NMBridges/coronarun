@@ -10,6 +10,8 @@ public class OverallController : MonoBehaviour
     public Transform skid;
     public Transform blood;
     public Transform deathScoreParticles;
+    public Transform covidEffect;
+    public Transform starsEffect;
     TimeRemap timeManager;
     float playerDir;
     float speed;
@@ -177,6 +179,7 @@ public class OverallController : MonoBehaviour
     {
         if(coronaLevel >= 8 && playerIsMoving)
         {
+            GenCovid(transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).position, transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).forward);
             doRagdoll(true, 50200f * pRigid.velocity);
             GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
             deathText.SetActive(true);
@@ -391,7 +394,22 @@ public class OverallController : MonoBehaviour
             GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
             deathText.SetActive(true);
             deathText.GetComponent<TMPro.TextMeshProUGUI>().text = carStatements[Random.Range(0, carStatements.Length)];
-            GenBlood(col.contacts[0].point, col.contacts[0].normal);
+            if(GameObject.Find("LoadingScreenColorObject") != null)
+            {
+                if(GameObject.Find("LoadingScreenColorObject").GetComponent<LoadingScreenColor>().bloodval == 0)
+                {
+                    GenBlood(col.contacts[0].point, col.contacts[0].normal);
+                } else if(GameObject.Find("LoadingScreenColorObject").GetComponent<LoadingScreenColor>().bloodval == 1)
+                {
+                    GenCovid(transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).position, transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).forward);
+                } else if(GameObject.Find("LoadingScreenColorObject").GetComponent<LoadingScreenColor>().bloodval == 2)
+                {
+                    GenStars(transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).position, transform.GetChild(0).GetChild(1).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(2).GetChild(0).forward);
+                }
+            } else
+            {
+                GenBlood(col.contacts[0].point, col.contacts[0].normal);
+            }
             colaGoal = 1f;
             colorGoal = colorRed;
             pRigid.velocity = Vector3.zero;
@@ -515,6 +533,18 @@ public class OverallController : MonoBehaviour
     {
         Transform parent = transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Transform>();
         Transform temp = Instantiate(blood, pos, Quaternion.LookRotation(rot, Vector3.up), parent);
+    }
+
+    void GenCovid(Vector3 pos, Vector3 rot)
+    {
+        Transform parent = transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Transform>();
+        Transform temp = Instantiate(covidEffect, pos, Quaternion.LookRotation(rot, Vector3.up), parent);
+    }
+
+    void GenStars(Vector3 pos, Vector3 rot)
+    {
+        Transform parent = transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Transform>();
+        Transform temp = Instantiate(starsEffect, pos, Quaternion.LookRotation(rot, Vector3.up), parent);
     }
 
     private IEnumerator GenScoreFX()
