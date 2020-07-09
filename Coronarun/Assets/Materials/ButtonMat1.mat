@@ -69,7 +69,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _Surface: 1
-    - _WidthVar: 0.0051775305
+    - _WidthVar: 0.98203266
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
