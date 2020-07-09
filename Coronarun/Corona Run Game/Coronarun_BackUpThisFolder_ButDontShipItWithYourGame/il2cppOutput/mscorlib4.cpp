@@ -22753,7 +22753,7 @@ IL_0189:
 			V_10 = L_49;
 			FieldInfo_t * L_50 = V_10;
 			NullCheck(L_50);
-			RuntimeObject * L_51 = VirtFuncInvoker0< RuntimeObject * >::Invoke(28 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_50);
+			RuntimeObject * L_51 = VirtFuncInvoker0< RuntimeObject * >::Invoke(27 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_50);
 			V_11 = L_51;
 			RuntimeObject * L_52 = V_11;
 			if (!L_52)

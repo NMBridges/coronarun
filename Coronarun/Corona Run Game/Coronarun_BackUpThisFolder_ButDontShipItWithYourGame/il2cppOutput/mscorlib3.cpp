@@ -52063,7 +52063,7 @@ IL_003f:
 	{
 		FieldInfo_t * L_17 = ___staticField1;
 		NullCheck(L_17);
-		RuntimeObject * L_18 = VirtFuncInvoker0< RuntimeObject * >::Invoke(28 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_17);
+		RuntimeObject * L_18 = VirtFuncInvoker0< RuntimeObject * >::Invoke(27 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_17);
 		V_2 = ((*(int32_t*)((int32_t*)UnBox(L_18, Int32_t585191389E07734F19F3156FF88FB3EF4800D102_il2cpp_TypeInfo_var))));
 		ManifestBuilder_t6C6D19F4605FBB0F1E11B6143457A3AE4D01E450 * L_19 = ___manifest0;
 		FieldInfo_t * L_20 = ___staticField1;
@@ -52121,7 +52121,7 @@ IL_0090:
 	{
 		FieldInfo_t * L_34 = ___staticField1;
 		NullCheck(L_34);
-		RuntimeObject * L_35 = VirtFuncInvoker0< RuntimeObject * >::Invoke(28 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_34);
+		RuntimeObject * L_35 = VirtFuncInvoker0< RuntimeObject * >::Invoke(27 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_34);
 		V_3 = ((*(int32_t*)((int32_t*)UnBox(L_35, Int32_t585191389E07734F19F3156FF88FB3EF4800D102_il2cpp_TypeInfo_var))));
 		ManifestBuilder_t6C6D19F4605FBB0F1E11B6143457A3AE4D01E450 * L_36 = ___manifest0;
 		FieldInfo_t * L_37 = ___staticField1;
@@ -52179,7 +52179,7 @@ IL_00de:
 	{
 		FieldInfo_t * L_51 = ___staticField1;
 		NullCheck(L_51);
-		RuntimeObject * L_52 = VirtFuncInvoker0< RuntimeObject * >::Invoke(28 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_51);
+		RuntimeObject * L_52 = VirtFuncInvoker0< RuntimeObject * >::Invoke(27 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_51);
 		V_4 = ((*(int64_t*)((int64_t*)UnBox(L_52, Int64_t7A386C2FF7B0280A0F516992401DDFCF0FF7B436_il2cpp_TypeInfo_var))));
 		ManifestBuilder_t6C6D19F4605FBB0F1E11B6143457A3AE4D01E450 * L_53 = ___manifest0;
 		FieldInfo_t * L_54 = ___staticField1;

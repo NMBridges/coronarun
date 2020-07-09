@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
         transform.position = player.position + new Vector3(0f, 1.5f, -5.5f);
         tranState = 0;
-        magnitude = 0.1f;
+        magnitude = 0.0f;
         lastTime = Time.unscaledTime;
         newPoint = Vector3.zero;
         period = 0.08f;

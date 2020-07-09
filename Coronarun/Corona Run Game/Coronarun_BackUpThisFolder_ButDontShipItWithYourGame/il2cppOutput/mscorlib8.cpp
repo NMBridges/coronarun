@@ -27319,14 +27319,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool FieldInfo_get_IsStatic_mDEB4099D238E5846
 		return (bool)((!(((uint32_t)((int32_t)((int32_t)L_0&(int32_t)((int32_t)16)))) <= ((uint32_t)0)))? 1 : 0);
 	}
 }
-// System.Boolean System.Reflection.FieldInfo::get_IsInitOnly()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool FieldInfo_get_IsInitOnly_m55ECD5C1B5F908CC9D10FDA743C9014CDB45E044 (FieldInfo_t * __this, const RuntimeMethod* method)
-{
-	{
-		int32_t L_0 = VirtFuncInvoker0< int32_t >::Invoke(16 /* System.Reflection.FieldAttributes System.Reflection.FieldInfo::get_Attributes() */, __this);
-		return (bool)((!(((uint32_t)((int32_t)((int32_t)L_0&(int32_t)((int32_t)32)))) <= ((uint32_t)0)))? 1 : 0);
-	}
-}
 // System.Boolean System.Reflection.FieldInfo::get_IsNotSerialized()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool FieldInfo_get_IsNotSerialized_mB1C922AA795D536F932AF848D46AA2F9A4874201 (FieldInfo_t * __this, const RuntimeMethod* method)
 {
@@ -27341,7 +27333,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FieldInfo_SetValue_m9E7A4FBA27F835B6C26C
 	{
 		RuntimeObject * L_0 = ___obj0;
 		RuntimeObject * L_1 = ___value1;
-		VirtActionInvoker5< RuntimeObject *, RuntimeObject *, int32_t, Binder_t4D5CB06963501D32847C057B57157D6DC49CA759 *, CultureInfo_t345AC6924134F039ED9A11F3E03F8E91B6A3225F * >::Invoke(24 /* System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object,System.Reflection.BindingFlags,System.Reflection.Binder,System.Globalization.CultureInfo) */, __this, L_0, L_1, 0, (Binder_t4D5CB06963501D32847C057B57157D6DC49CA759 *)NULL, (CultureInfo_t345AC6924134F039ED9A11F3E03F8E91B6A3225F *)NULL);
+		VirtActionInvoker5< RuntimeObject *, RuntimeObject *, int32_t, Binder_t4D5CB06963501D32847C057B57157D6DC49CA759 *, CultureInfo_t345AC6924134F039ED9A11F3E03F8E91B6A3225F * >::Invoke(23 /* System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object,System.Reflection.BindingFlags,System.Reflection.Binder,System.Globalization.CultureInfo) */, __this, L_0, L_1, 0, (Binder_t4D5CB06963501D32847C057B57157D6DC49CA759 *)NULL, (CultureInfo_t345AC6924134F039ED9A11F3E03F8E91B6A3225F *)NULL);
 		return;
 	}
 }
@@ -27576,7 +27568,7 @@ IL_004f:
 		int32_t L_19 = V_0;
 		int32_t L_20 = L_19;
 		V_0 = ((int32_t)il2cpp_codegen_add((int32_t)L_20, (int32_t)1));
-		int32_t L_21 = VirtFuncInvoker0< int32_t >::Invoke(26 /* System.Int32 System.Reflection.FieldInfo::GetFieldOffset() */, __this);
+		int32_t L_21 = VirtFuncInvoker0< int32_t >::Invoke(25 /* System.Int32 System.Reflection.FieldInfo::GetFieldOffset() */, __this);
 		FieldOffsetAttribute_t0DC41E3845F489E8751A1087AE893D8F5A9ABA49 * L_22 = (FieldOffsetAttribute_t0DC41E3845F489E8751A1087AE893D8F5A9ABA49 *)il2cpp_codegen_object_new(FieldOffsetAttribute_t0DC41E3845F489E8751A1087AE893D8F5A9ABA49_il2cpp_TypeInfo_var);
 		FieldOffsetAttribute__ctor_m31F2757C7ABC78800DBDAE32C53F85708E2EB629(L_22, L_21, /*hidden argument*/NULL);
 		NullCheck(L_18);

@@ -83,6 +83,7 @@
 		<type fullname="MMMousePoint" preserve="nothing"/>
 		<type fullname="MinimapScript" preserve="nothing"/>
 		<type fullname="MusicInitializer" preserve="nothing"/>
+		<type fullname="OptionsMousePoint" preserve="nothing"/>
 		<type fullname="OutlineFeature" preserve="nothing"/>
 		<type fullname="OverallController" preserve="nothing"/>
 		<type fullname="RoadBlockScript" preserve="nothing"/>
@@ -131,11 +132,13 @@
 		<type fullname="UnityEngine.Rendering.Universal.DepthOfField" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.ForwardRendererData" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.LensDistortion" preserve="nothing"/>
+		<type fullname="UnityEngine.Rendering.Universal.MotionBlur" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.PostProcessData" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources" preserve="nothing"/>
+		<type fullname="UnityEngine.Rendering.Universal.Vignette" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.TextMeshPro">
 		<type fullname="TMPro.TMP_Dropdown" preserve="nothing"/>

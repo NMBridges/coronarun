@@ -36836,7 +36836,7 @@ IL_0020:
 		int32_t L_16 = L_15;
 		FieldInfo_t * L_17 = (L_14)->GetAt(static_cast<il2cpp_array_size_t>(L_16));
 		NullCheck(L_17);
-		RuntimeObject * L_18 = VirtFuncInvoker0< RuntimeObject * >::Invoke(28 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_17);
+		RuntimeObject * L_18 = VirtFuncInvoker0< RuntimeObject * >::Invoke(27 /* System.Object System.Reflection.FieldInfo::GetRawConstantValue() */, L_17);
 		NullCheck(L_12);
 		ArrayElementTypeCheck (L_12, L_18);
 		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(L_13), (RuntimeObject *)L_18);

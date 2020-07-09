@@ -40030,7 +40030,7 @@ IL_029f:
 IL_02ac:
 	{
 		// m_AtlasRenderMode = GlyphRenderMode.SDF16;
-		__this->set_m_AtlasRenderMode_26(((int32_t)16426));
+		__this->set_m_AtlasRenderMode_26(((int32_t)16422));
 		// break;
 		goto IL_02c4;
 	}
@@ -40038,7 +40038,7 @@ IL_02ac:
 IL_02b9:
 	{
 		// m_AtlasRenderMode = GlyphRenderMode.SDF32;
-		__this->set_m_AtlasRenderMode_26(((int32_t)32810));
+		__this->set_m_AtlasRenderMode_26(((int32_t)32806));
 	}
 
 IL_02c4:
