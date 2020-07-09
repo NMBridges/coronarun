@@ -38,8 +38,10 @@ public class OverallController : MonoBehaviour
     float startTime;
     float cola;
     float colaGoal;
+    float lastColaGoal;
     Color colorGreen;
     Color colorRed;
+    Color colorWhite;
     Color colorGoal;
     Color colorTransparent;
     string[] coronaStatements;
@@ -89,16 +91,18 @@ public class OverallController : MonoBehaviour
         startTime = Time.time;
         cola = 0f;
         colaGoal = 0f;
+        lastColaGoal = 0f;
         colorGreen = new Color(0.164f, 0.274f, 0.156f, 1f);
         colorRed = new Color(0.4f, 0.05f, 0.05f, 0.75f);
+        colorWhite = new Color(1f, 1f, 1f, 0.6f);
         colorGoal = colorGreen;
-        colorTransparent = new Color(0.05f, 0.6f, 0.05f, 0.1f);
+        colorTransparent = new Color(0.05f, 0.2f, 0.05f, 0.1f);
         GameObject.Find("CoronaOverlay").GetComponent<RawImage>().material.SetColor("_Color", Color.Lerp(colorTransparent, colorGoal, cola));
         GameObject deathText = transform.GetChild(2).GetChild(0).GetChild(7).gameObject;
         deathText.SetActive(false);
         statements();
         currPer = 0f;
-        breathTime = 3f;
+        breathTime = 2f;
         breathState = 0;
     }
 
@@ -136,19 +140,26 @@ public class OverallController : MonoBehaviour
         }
         if(Input.GetKey("left shift"))
         {
-            if(breathState == 0)
+            if(playerIsMoving)
             {
-                lastBreathTime = breathTime;
-                timeAtBreath = Time.time;
-                breathState = 1;
-            }
-            if(breathState == 1)
-            {
-                breathTime = lastBreathTime - (Time.time - timeAtBreath);
-                if(breathTime <= 0)
+                if(breathState == 0)
                 {
-                    breathTime = 0;
-                    breathState = 2;
+                    lastBreathTime = breathTime;
+                    timeAtBreath = Time.time;
+                    breathState = 1;
+                    lastColaGoal = colaGoal;
+                    colorGoal = colorWhite;
+                }
+                if(breathState == 1)
+                {
+                    breathTime = lastBreathTime - (Time.time - timeAtBreath);
+                    colaGoal = Mathf.Clamp(colaGoal + 6f * Time.deltaTime, 0f, 1f);
+                    if(breathTime <= 0)
+                    {
+                        breathTime = 0;
+                        breathState = 2;
+                        
+                    }
                 }
             }
         }
@@ -159,7 +170,7 @@ public class OverallController : MonoBehaviour
                 breathState = 0;
             }
         }
-        UnityEngine.Debug.Log(breathTime);
+        GameObject.Find("BreathTime").GetComponent<RawImage>().material.SetFloat("_Percentage", breathTime / 2f);
     }
 
     void movement()
@@ -450,9 +461,10 @@ public class OverallController : MonoBehaviour
 
     private void OnParticleCollision(GameObject col)
     {
-        if(col.tag == "coughbruh")
+        if(col.tag == "coughbruh" && breathState != 1)
         {
             coronaLevel += 1;
+            colorGoal = colorGreen;
             colaGoal = Mathf.Clamp(colaGoal + 0.6f, 0f, 1f);
         }
     }
@@ -514,8 +526,6 @@ public class OverallController : MonoBehaviour
 
     void OnGUI()
     {
-
-        GUI.Label(new Rect(100, 100, 100, 100), " " + 1f / Time.deltaTime);
-        GUI.Label(new Rect(100, 150, 100, 100), " " + coronaLevel);
+        GUI.Label(new Rect(2, 2, 100, 100), " " + Mathf.Ceil(1f / Time.deltaTime));
     }
 }

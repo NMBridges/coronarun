@@ -36,6 +36,7 @@ public class TimeRemap : MonoBehaviour
     {
         if(!updating)
         {
+            GameObject.Find("SpeedParticleSystem").SetActive(false);
         	Time.timeScale = timeFactor;
         	Time.fixedDeltaTime = 0.02f * Time.timeScale;
         	updating = true;
